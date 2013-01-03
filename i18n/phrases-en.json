@@ -1,0 +1,84 @@
+{
+	"slogan": "Life is for sharing.",
+	"connect": "Connect Now",
+	"faqs": "FAQs",
+	"welcome": "Welcome to ClearPath Networks on the Business Marketplace",
+	"intro": " Click the \"download\" button now to download and install the VPN client. After the download is successfully completed, just click \"connect\". It's that easy to access the cloud securely...",
+	"lowmem": "This application consumes very little memory on your computer or server, so it does not interfere with the performance of other applications running on those same machines.",
+	"vpnrac-connect": "Connect to Secure Private Network",
+	"vpnrac-disconnect": "Disconnect from Secure Private Network",
+	"vpnrac": {
+		"on": "On",
+		"off": "Off",
+		"peers": "Connect to Peers",
+		"nopeers": "No peers available",
+		"progress": {
+			"wait": "Please Wait...",
+			"timeout": "Request Timeout!",
+			"success": "Connection Successful!"
+		}
+	},
+	"manage": {
+		"title": "Manage",
+		"serverkeys": {
+			"title": "Server Keys",
+			"usage": {
+				"title": "Usage Info",
+				"text": "You will need to supply one of the server keys you have available following installation of the Secure Private Network application on a server to enable persistent VPN connectivity."
+			},
+			"table": "Server Keys"
+		},
+		"connections": {
+			"title": "View Connections",
+			"heading": "Active Connections",
+			"table": {
+				"email": "E-Mail",
+				"ip": "IP Address",
+				"since": "Since",
+				"received": "Received",
+				"sent": "Sent"
+			}
+		},
+		"close": "Close"
+	},
+	"select": {
+		"os": "Select Operating System",
+		"version": "Select Version"
+	},
+	"remoteaccess": {
+		"title": "Remote Access",
+		"text":  "All you need is an Internet connection and the secure encrypted connection is automatically built between your computer and all other enabled computers and servers. Access is available from cafes, other offices, hotels and any location with a WiFi or wired Internet connection."
+	},
+	"dataloss": { 
+		"title": "Data Loss Protection",
+		"text": "Limit access to your important and private business information and applications to only those computers and servers you authorize. Your connections and information remain hidden from the rest of the Internet."
+	},
+	"encryption": {
+		"title": "Encryption",
+		"text": "Prohibit unauthorized access to your important information and applications. This application automatically encrypts all content sent between your Secure Private Network users and servers located at your office locations or any secured remote user with an Internet connection."
+	},
+	"alert": {
+		"sessionInvalid": {
+			"title": "Thanks for Visiting!",
+			"text": "Please come back after logging into the Business Marketplace Portal to join your Secure Private Network."
+		},
+		"sessionExpired": {
+			"title": "Your Session Has Expired!",
+			"text": "Before you can securely connect to your Private Network, please log back into the Business Marketplace Portal and try again."
+		},
+		"retry": "Try Again?",
+		"return": "Take me back to Business Marketplace"
+	},
+	"requirements": "System Requirements",
+	"pre1": "A single, Pentium®-class processor or better, 512MB+ (1GB recommended), and 10MB hard disk storage space",
+	"pre2": "Web Browser – IE 6+, Chrome, Firefox 3+, Safari 5 +",
+	"oneofos": "One of the following operating systems:",
+	"languages": "Languages supported – English (US), Deutsch (De), French (Fr), Italian (IT) (Note : Language installer selected based on language preference selected on the portal)",
+	"dotnet": "(.Net Framework 3.5 or newer)",
+	"installguide": "Installation Guide",
+	"install": {
+		"win": "View the Installation Guide for Windows (pdf)",
+		"mac": "View the Installation Guide for MAC OSX (pdf)",
+		"linux": "View the Installation Guide for Linux (pdf)"
+	}
+}

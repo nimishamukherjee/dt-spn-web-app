@@ -1,0 +1,16 @@
+{
+	"user": {
+		"Windows": [ { "version": "Client - 32bit",     "url": "SecurePrivateNetwork-32bit-Client.exe" },
+					 { "version": "Client - 64bit",     "url": "SecurePrivateNetwork-64bit-Client.exe" }],
+		"Mac":     [ { "version": "OSX 10.6/10.7/10.8", "url": "SecurePrivateNetwork108.pkg" },
+					 { "version": "OSX 10.4/10.5",      "url": "SecurePrivateNetwork107.pkg" } ],
+		"Linux":   [ { "version": "DEB package - 32bit","url": "SecurePrivateNetwork-32bit-3.1.15.deb" },
+					 { "version": "DEB package - 64bit","url": "SecurePrivateNetwork-64bit-3.1.15.deb" } ]
+	},
+	"admin": {
+		"Windows": [ { "version": "Server - 32bit", "url": "SecurePrivateNetwork-32bit-Server.exe" },
+					 { "version": "Server - 64bit", "url": "SecurePrivateNetwork-64bit-Server.exe" }],
+		"Mac":     [ { "version": "Server OSX 10.6/10.7/10.8", "url": "SecurePrivateNetworkServer106.pkg"},
+					 { "version": "Server OSX 10.4/10.5",      "url": "SecurePrivateNetworkServer105.pkg"}]
+	}
+}

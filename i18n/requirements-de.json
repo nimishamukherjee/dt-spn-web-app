@@ -1,0 +1,8 @@
+{
+	"pre1": "Intel Pentium® Class Prozessor oder höher , empfohlen mindestens 1 Ghz.",
+	"pre2": "Web Browser: MS Internet Explorer 6 oder  höher, Google Chrome, Mozilla Firefox 3 oder höher, Apple Safari 5 oder höher",
+	"oneofos": "Eines der folgenden Betriebssysteme:",
+	"languages": "Languages supported – English (US), Deutsch (De), French (Fr), Italian (IT) (Note : Language installer selected based on language preference selected on the portal)",
+	"system1": "Mindestens 10 MB freier Festplattenspeicher",
+	"system2": "512 MB Arbeitsspeicher (1 GB empfohlen)",
+}

@@ -1,0 +1,35 @@
+{
+	"product": {
+		"q1": "Wer ist ClearPath?",
+		"a1": "ClearPath Networks, Inc. liefert die Technologie für Secure Private Network. ClearPath ist Branchenführer bei der Entwicklung von Netzwerk-Infrastruktur und Sicherheitslösungen aus der Cloud mit über 3000 Unternehmenskunden in Europa und Nordamerika, darunter einige der weltweit größten Telekommunikationsunternehmen. Gegründet in 2002 und beheimatet in Los Angeles/Kalifornien, ist ClearPath einer der ersten Pioniere für Cloud-Technologie und hält zahlreiche Patente in USA, Kanada, der EU, UK, China und Japan. Die Cloud-Technologie reduziert die manuellen und teuren Interaktionen die typischerweise für die Bereitstellung von Value-Add-Services benötigt werden.",
+
+		"q2": "Was ist ClearPath Secure Private Network?",
+		"a2": "Secure Private Network stellt den Benutzern eine verschlüsselte Internetverbindung für die Kommunikation zwischen dem Endgerät des Benutzers und den an unterschiedlichen Orten verteilten Servern zur Verfügung, z.B. zwischen Unternehmenszentrale, Filialen, Home Offices, Lieferanten, Kunden etc. Secure Private Network Benutzer können so überaus sicher auf Dateien oder Anwendungen, die auf verteilten Servern liegen, zugreifen oder Dateien mit Kollegen in anderen Standorten teilen oder austauschen.",
+
+		"q3": "Warum sollte ich ClearPath Secure Private Network nutzen?",
+		"a3": "Secure Private Network macht Sie mit Sicherheit produktiver. Alle Ihre Dateien oder Anwendungen liegen zentral, Sie können aber zu jeder Zeit und von überall über eine Internetverbindung sicher und verschlüsselt darauf zugreifen. Vom Server bis zum Endgerät, Ihre sensiblen Unternehmensdaten bleiben auf dem Weg durch das Internet immer geschützt und sicher, wo immer Sie sich befinden."
+
+	},
+	"tech": {
+		"q1": "Welche Betriebssysteme unterstützt ClearPath Secure Private Network?",
+		"a1": "ClearPath Secure Private Network unterstützt die folgenden Betriebssysteme:  Windows 2000, XP, Vista, und 7; Mac OSX Snow Leopard und Mountain Lion.",
+
+		"q2": "Was benötigt ClearPath Secure Private Network um zu funktionieren?",
+		"a2": "ClearPath Secure Private Network  beinhaltet einen Software Client, der über Ihren Kunden-Account im TelekomCloud Business Marketplace  heruntergeladen und auf den Endgeräten der Benutzers sowie auf den Servern installiert wird. Nach der Installation stellen die Software-Clients sicher, dass alle Daten, die vom Endgerät oder Server gesendet oder empfangen werden, verschlüsselt und geschützt sind.",
+
+		"q3": "Wie kann ich ClearPath Secure Private Network  von meinem Endgerät oder Server entfernen?",
+		"a3": "Unter Windows deinstallieren Sie den Client über die Systemsteuerung, für MacOS  verschieben Sie den Client in den Papierkorb.",
+
+		"q4": "Was, wenn ich mich auf dem TelekomCloud Business Marketplace nicht mit meinen Log-in Daten anmelden kann?",
+		"a4": "In diesem Fall kontaktieren Sie bitte die TelekomCloud Business Marketplace Hotline unter 0800 330 4444 (kostenfrei aus dem deutschen Festnetz und allen deutschen Mobilfunknetzen).",
+
+		"q5": "Muss ich ClearPath Secure Private Network neu starten, wenn ich mein Endgerät oder Server neu hochfahre?",
+		"a5": "Ja. Secure Private Network muss nach jedem Neustart oder Ausloggen neu gestartet werden.  Hierzu ist es notwendig, dass Sie sich in Ihrem Kunden-Account auf dem TelekomCloud Business Marketplace einloggen und dort ClearPath Secure Private Network für Ihr Endgerät starten.",
+
+		"q6": "Wie kann ich die ClearPath Secure Private Network Verbindung beenden?",
+		"a6": "Sie können die Secure Private Network Verbindung durch Ausloggen oder Ausschalten Ihres Endgerätes beenden. Auch über die Funktion „Verbindung trennen“ in Ihrem Kunden-Account des TelekomCloud Business Marketplace können Sie die Verbindung beenden.",
+
+		"q7": "Wie erkenne ich, dass Secure Private Network „aktiv“ ist?",
+		"a7": "Sobald Sie das ClearPath Secure Private Network Icon in Ihrer Windows bzw. MacOS Task-Leiste sehen, ist der Client aktiv."
+	}
+}

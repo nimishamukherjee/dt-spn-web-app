@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Business Marketplace - Secure Private Network</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta name="description" content="Secure Private Network Access Page"/>
+		<meta name="author" content="ClearPath Networks, Inc."/>
+		<!-- Le styles -->
+		<link href="css/bootstrap.css" rel="stylesheet"/>
+		<link href="css/bootstrap-responsive.css" rel="stylesheet"/>
+		<link href="css/sleek.css" rel="stylesheet"/>
+		<link href="css/app.css" rel="stylesheet"/>
+		
+		<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<!-- Le fav and touch icons
+		<link rel="shortcut icon" href="../assets/ico/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+		-->
+	</head>
+	<body data-offset="40" data-target=".subnav" data-spy="scroll" data-twttr-rendered="true">
+	  <div id="banner" class="navbar navbar-fixed-top"></div>
+	  <div class="container">
+		<header id="overview" class="jumbotron">
+
+		  <div id="language" class="btn-group" data-toggle="buttons-radio">
+
+			<button class="btn" localize-lang="de-DE">
+			  Deutsch
+			</button>
+			<button class="btn" localize-lang="en-US">
+			  English
+			</button>
+
+		  </div>
+		  <div id="logo-bar">
+			<div id="logo" class="brand">
+			  <img alt="" src="img/cpn-logo-150x60.png"/>
+			</div>
+		  </div>
+		  <hr/>
+		</header>
+		<ul class="nav nav-pills hide" id="admin-panel">
+  			<li class="active main-admin-nav"><a href="rac">Client</a></li>
+  			<li class="main-admin-nav"><a href="manage">Manage</a></li>
+  			<li class="main-admin-nav"><a href="sites">Sites</a></li>
+		</ul>
+		<div id="rac">
+		<h2 data-localize="welcome">Welcome to ClearPath Networks on the Business Marketplace</h2>
+		<div class="row">
+			<p class="span8" data-localize="intro">Click the “download” button now to download and install the SPN client. After the download is successfully completed, just click “connect”. It´s that easy to access the cloud securely...</p>
+	  	</div>
+		<section id="connect">
+			<div class="row">
+				<div class="span6">
+					<div id="vpnrac" class="well">
+						<div class="row-fluid">
+							<div class="span5" style="text-align:center">
+								<img alt="" src="img/spn-badge-small.png"/>
+								<h4>by ClearPath Networks</h4>
+						  	</div>
+						  	<div class="span7">
+								<p><span id="vpnrac-connect-message" data-localize="vpnrac-connect">Connect to Secure Private Network</span>:</p>
+								<div id="vpnrac-toggle" class="btn-group" data-toggle="buttons-radio">
+								  <button class="btn btn-large" data-vpnrac="connect" data-localize="vpnrac.on">On</button>
+								  <button class="btn btn-large active" data-vpnrac="disconnect" data-localize="vpnrac.off">Off</button>
+								</div>
+								<p></p>
+								<div id="vpnrac-message">
+									<div id="vpnrac-progress">
+										<span class="wait" data-localize="vpnrac.progress.wait">Please Wait...</span>
+										<span class="timeout" data-localize="vpnrac.progress.timeout">Request Timeout! Try Again?</span>
+										<span class="success" data-localize="vpnrac.progress.success">Connection Successful!</span>
+										<div class="progress progress-striped active"><div class="bar"></div></div>
+									</div>
+								</div>
+								<p></p>
+								<div id="peers" class="btn-group">
+							  		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <span data-localize="vpnrac.peers">Connect to Peers</span> <span class="caret"></span> </a>
+							  		<ul class="dropdown-menu" id="peer-list">
+										<li class="template" data-localize="vpnrac.nopeers">No peers available</li>
+							  		</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				  </div>
+				<div id="download" class="span5">						
+					<div class="well">
+						<div data-toggle="dropdown"><span data-localize="select.os"><b>Select OS</b></span> <span class="selected-os"></span></div>
+						<hr />
+				  		<a class="os activeicon" title="Windows"><img src="img/icon_windows.png"/></a>
+						<a class="os" title="Mac"><img src="img/icon_apple.png"/></a>
+						<a class="os" title="Linux"><img src="img/icon_linux.png"/></a>
+						<a class="os" title="iphone"><img src="img/icon_mobile.png"/></a>
+						<br /><br />
+						<p>
+							<div id="select-version" class="row btn-group">
+								<div class="span2" id="client">
+									<div><span data-localize="select.client"><b>Download Client</b></span></div>
+									<hr />
+									<ul>
+						  				<li>
+											<a class="version" href="#">current</a>
+						  				</li>
+						  				<li class="divider"></li>
+									</ul>
+								</div>
+								<div class="span2 hide" id="server">
+								<div><span data-localize="select.server"><b>Download Server</b></span></div>
+								<hr />
+								<ul>
+						  			<li>
+										<a class="version" href="#">current</a>
+						  			</li>
+						  			<li class="divider"></li>
+								</ul>
+							</div>
+						</div>	
+							<div id="activate-iphone" class="hide btn-group">
+								<div><span data-localize="select.activate"><b>Activate</b></span></div>
+								<hr />
+					  			<button class="btn btn-large" type="button" data-loading-text="Activating...">Activate</button>
+							</div>
+						</p>
+					  
+					
+				  </div>
+				  
+				</div>
+			</div>
+			</section>
+			<!-- Product Benefits -->
+			<div id="benefits" class="row">
+				<div class="span4">
+					<h2 data-localize="remoteaccess.title">Remote Access</h2>
+					<p data-localize="remoteaccess.text">
+						All you need is an Internet connection and the secure encrypted connection is automatically built between your computer and all other enabled computers and servers. Access is available from cafes, other offices, hotels and any location with a WiFi or wired Internet connection.
+					</p>
+					<p>
+						<a class="btn" href="#">View details &raquo;</a>
+					</p>
+				</div>
+				<div class="span4">
+					<h2 data-localize="dataloss.title">Data Loss Protection</h2>
+					<p data-localize="dataloss.text">
+						Limit access to your important and private business information and applications to only those computers and servers you authorize. Your connections and information remain hidden from the rest of the Internet.
+					</p>
+					<p>
+						<a class="btn" href="#">View details &raquo;</a>
+					</p>
+				</div>
+				<div class="span4">
+					<h2 data-localize="encryption.title">Encryption</h2>
+					<p data-localize="encryption.text">
+						Prohibit unauthorized access to your important information and applications. This application automatically encrypts all content sent between your Secure Private Network users and servers located at your office locations or any secured remote user with an Internet connection.
+					</p>
+					<p>
+						<a class="btn" href="#">View details &raquo;</a>
+					</p>
+				</div>
+			</div>
+			<hr/>
+			<section id="information">
+			  <div class="row">
+				<div class="span6">
+					<h3 data-localize="requirements">System Requirements</h3>
+					<ul>
+					  <li data-localize="pre1">
+						A single, Pentium®-class processor or better, 512MB+ (1GB recommended), and 10MB hard disk storage space
+					  </li>
+					  <li data-localize="pre2">Web Browser: MS Internet Explorer 6 or newer, Google Chrome, Mozilla Firefox 3 or newer, Apple Safari 5 or newer</li>
+					  <li data-localize="oneofos">One of the following operating systems:</li>
+					  <ul>
+						<li>
+						  MS Windows 98 / XP / Vista / 7 <span data-localize="dotnet">(.Net Framework 3.5+)</span>
+						</li>
+						<li>
+						  MS Windows Server 2000 / 2003 / 2008 <span data-localize="dotnet">(.Net Framework 3.5+)</span>
+						</li>
+						<li>
+						  Mac OSX Tiger / Leopard / Snow Leopard / Lion / Mountain Lion
+						</li>
+						<li>
+						  Linux Ubuntu, Debian (DEB package)
+						</li>
+						<li>
+						  Linux CentOS, Fedora, RHEL, OpenSuse (RPM package)
+						</li>
+					  </ul>
+					</ul>
+				</div>
+
+				<div class="span6">
+				  <h3 data-localize="installguide">Installation Guide</h3>
+				  <div><a target="_blank" data-localize="install.win" href="guides/Win-SPN_InstallationGuide-de.pdf">View the Installation Guide for Windows (pdf)</a></div>
+				  <div><a target="_blank" data-localize="install.mac" href="guides/MacOS-SPN_InstallationGuide-de.pdf">View the Installation Guide for Mac OSX (pdf)</a></div>
+				  <div><a target="_blank" data-localize="install.linux" href="guides/Linux-SPN_InstallationGuide-de.pdf">View the Installation Guide for Linux (pdf)</a></div>
+
+				  <h3><a target="_blank" href="http://support.telekomcloud.com/category/2/2.10">FAQ</a></h3>
+				  <!--
+				  <div><a data-toggle="modal" href="#ProductFAQ">Product FAQ</a></div>
+				  <div><a data-toggle="modal" href="#TechnicalFAQ">Technical FAQ</a></div>
+				  -->
+				</div>
+
+				<div class="modal hide" id="ProductFAQ">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+					  ×
+					</button>
+					<h3>Product FAQ</h3>
+				  </div>
+				  <div class="modal-body">
+					<dl>
+					  <dt data-localize="product.q1"></dt>
+					  <dd data-localize="product.a1"></dd>
+					  <dt data-localize="product.q2"></dt>
+					  <dd data-localize="product.a2"></dd>
+					  <dt data-localize="product.q3"></dt>
+					  <dd data-localize="product.a3"></dd>
+					</dl>
+				  </div>
+				  <div class="modal-footer">
+					<a href="#" class="btn" data-dismiss="modal">Close</a>
+				  </div>
+				</div>
+
+				<div class="modal hide" id="TechnicalFAQ">
+				  <div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+					  ×
+					</button>
+					<h3>Technical FAQs</h3>
+				  </div>
+				  <div class="modal-body">
+					<dl>
+					  <dt data-localize="tech.q1"></dt>
+					  <dd data-localize="tech.a1"></dd>
+					  <dt data-localize="tech.q2"></dt>
+					  <dd data-localize="tech.a2"></dd>
+					  <dt data-localize="tech.q3"></dt>
+					  <dd data-localize="tech.a3"></dd>
+					  <dt data-localize="tech.q4"></dt>
+					  <dd data-localize="tech.a4"></dd>
+					  <dt data-localize="tech.q5"></dt>
+					  <dd data-localize="tech.a5"></dd>
+					  <dt data-localize="tech.q6"></dt>
+					  <dd data-localize="tech.a6"></dd>
+					  <dt data-localize="tech.q7"></dt>
+					  <dd data-localize="tech.a7"></dd>
+					</dl>
+				  </div>
+				  <div class="modal-footer">
+					<a href="#" class="btn" data-dismiss="modal">Close</a>
+				  </div>
+				</div>
+			  </div>
+			</section>
+			</div>
+		<div id="manage" class="hide">
+			<div class="row">
+				<div class="span2">
+					<ul class="nav nav-pills nav-stacked" id="admin-manage">
+		  				<li class="active"><a href="serverkeysadmin">Server Keys</a></li>
+		  				<li><a href="viewconnectionsadmin">View Connections</a></li>
+		  				<li><a href="utmadmin">UTM</a></li>
+					</ul>
+				</div>
+				<div class="span10">
+					<div id="serverkeysadmin">
+						<div id="ManageServerKeys">
+							<h3 data-localize="manage.serverkeys.title">Manage Server Keys</h3>
+							<div class="alert alert-block alert-info fade in">
+							  	<h4 class="alert-heading" data-localize="manage.serverkeys.usage.title">Usage Info</h4>
+								<span data-localize="manage.serverkeys.usage.text"> You will need to supply one of the
+						  		server keys you have available following installation of the Secure Private Network application on a server to enable persistent VPN
+						  		connectivity. </span>
+							</div>
+					  		<table id="serverkeys" class="table table-striped table-bordered table-condensed">
+								<thead>
+							  		<tr>
+										<th data-localize="manage.serverkeys.table">Server Keys</th>
+							  		</tr>
+								</thead>
+								<tbody></tbody>
+					  		</table>
+					  	</div>
+					  	<!--Manage Server Key end-->
+					</div>
+					<!--serverkeyadmin end-->
+					<div id="viewconnectionsadmin" class="hide">
+						<div id="ViewConnections">
+							<h3 data-localize="manage.connections.heading">Active Connections</h3>
+					  		<table id="connection-list" class="table table-striped table-bordered table-condensed">
+								<thead>
+						  			<tr>
+										<th data-localize="manage.connections.table.email">Email</th>
+										<th data-localize="manage.connections.table.ip">IP&nbsp;Address</th>
+										<th data-localize="manage.connections.table.since">Since</th>
+										<th data-localize="manage.connections.table.received">Received</th>
+										<th data-localize="manage.connections.table.sent">Sent</th>
+						  			</tr>
+								</thead>
+								<tbody></tbody>
+					  		</table>
+					  	</div>
+					</div>
+					<div id="utmadmin" class="hide">
+						<h3>Unified Threat Management</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="sites" class="hide">
+				Manage Sites
+			</div>
+			<hr/>
+			<footer>
+				<p>
+					<em>Copyright &copy; 2012 ClearPath Networks, Inc. All rights reserved</em>
+				</p>
+				<p>
+					U.S. Patent No. 7,783,800 and 8,078,777 | People's Republic of China Patent Number ZL 200580019475.4
+				</p>
+			</footer>
+		</div>
+		<!-- /container -->
+		<!-- Le javascript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.localize.js"></script>
+		<script src="js/jquery.client.js"></script>
+        <script src="js/Object.identical.js"></script> <!--PT ID 34604767 - Compare two objects to see if they are identical-->
+		<script src="js/jquery.url.js"></script>
+		<script src="js/jquery.vpnrac.js"></script>
+		<script src="js/app.js"></script>
+		<script type="text/javascript">
+			<!--
+			//$("section#connect > div").addClass('hero-unit')
+			-->
+		</script>
+		<div class="invisible-resources">
+			<div id="session-error" class="alert alert-block alert-error fade in">
+				<button class="close" data-dismiss="alert" type="button">
+					×
+				</button>
+				<h3 class="alert-heading" data-localize="alert.sessionError.title">Error Accessing Application!</h3>
+				<span data-localize="alert.sessionError.text"> There was an error while processing your request. Please
+					contact your Company Administrator or the Telecom Business
+					Cloud Marketplace hotline on 0800 330 4444. </span>
+				<p style="text-align:center">
+					<i class="error"></i>
+				</p>
+				<p>
+					<a class="btn" href="https://apps.telekomcloud.com" data-localize="alert.return">Take me back to Business Marketplace</a>
+				</p>
+			</div>
+			<div id="session-invalid" class="alert alert-block alert-success fade in">
+				<button class="close" data-dismiss="alert" type="button">
+					×
+				</button>
+				<h3 class="alert-heading" data-localize="alert.sessionInvalid.title">Thanks for Visiting!</h3>
+				<span data-localize="alert.sessionInvalid.text">Please come back after logging into the Business Marketplace Portal to join your Secure Private Network.</span>
+				<p>
+					<a class="btn" href="https://apps.telekomcloud.com" data-localize="alert.return">Take me back to Business Marketplace</a>
+				</p>
+			</div>
+			<div id="session-expired" class="alert alert-block alert-error fade in">
+				<button class="close" data-dismiss="alert" type="button">
+					×
+				</button>
+				<h3 class="alert-heading" data-localize="alert.sessionExpired.title">Your Session Has Expired!</h3>
+				<span data-loclize="alert.sessionExpired.text">Before you can securely connect to your Private Network, please log back into the Business Marketplace Portal and try again.</span>
+				<p>
+					<a class="btn btn-danger" href="https://apps.telekomcloud.com/login" data-localize="alert.return">Take me back to Business Marketplace</a>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+resources = {
+	"english":
+ 	{ 
+		"quote":"Connect to share better!", 
+		"counter1text":"Connected Now",
+		"counter2text": "Installed",
+		"newVersionMsg":"New version X.X is available, want to try?",
+		"usersRefLink":"Check who has installed?",
+		"titleMessage": "Hello <name> and <company> you have got 2 steps to joing your Secure Private Cloud!",
+		"downloadButtonLabel":"Download and Install the VPN client for ",
+		"versionButtonLabel":"Select a Version",
+		"osButonLabel":"Select your OS",
+		"connectButtonLabel":"Click to Connect", 
+		"onLoadMsg":"Start Downloading", 
+		"onClickDownload":"Downloading...   ", 
+		"onDownloadFinish":"Click to Connect",   
+		"onClickConnect":"connecting...",
+		"link1":"Installation Guidelines", 
+		"link2":" FAQs",
+		"link3":"Secure Private Cloud Benefits",
+		"link4":"Version History",
+		"link5":"Colloborate"
+	},
+	"german":{}
+}
+	

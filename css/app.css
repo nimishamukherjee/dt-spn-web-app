@@ -1,0 +1,164 @@
+/*START - SPN WebRac Client Page*/
+body {
+		padding-top: 10px;
+		padding-bottom: 40px;
+	}
+	.subnav .nav > .active > a, .subnav .nav > .active > a:hover {
+		color: #f1248d;
+	}
+	.subnav {
+		border: 1px solid #B7B7B7;
+		color: #606060;
+		width: auto;
+		padding: 10px 0px;
+	}
+	.subnav h2 {
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	dt {
+		margin-top: 10px;
+	}
+	footer {
+		text-align: center;
+		color: #999999;
+	}
+	.invisible-resources {
+		display: none;
+	}
+
+	hr { margin: 5px 0px; }
+
+#logo-bar {
+	/* margin: 15px 20px 5px; */
+	vertical-align: bottom;
+	min-height: 30px;
+	/* background: url("img/telekom-hdr-dot.png") 0px 15px repeat-x; */
+}
+
+#logo {
+	min-height: 40px;
+}
+#slogan {
+	float:right;
+	font-size: 16px;
+	color: #f1248d;
+	margin-top: -15px;
+	padding: 8px 20px 12px;
+}
+#language {
+    display:none;
+	float:right;
+	margin-right: 10px;
+}
+
+#information h3 { margin-top: 20px; }
+#information h4 { margin-top: 10px; }
+
+#download > .well{
+	padding-top: 5px;
+	
+}
+.os{
+	display: inline-block;
+  	*display: inline;
+  	padding: 4px;
+  	margin-bottom: 0;
+  	*margin-left: .3em;
+  	margin:4px;
+  	font-size: 13px;
+  	line-height: 18px;
+  	*line-height: 20px;
+  	height:50px;
+  	width:50px;
+  	border-radius:3px;
+	border: #8e8e8e  1px solid;
+  	color: #333333;
+  	text-align: center;
+  	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  	vertical-align: middle;
+  	cursor: pointer;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwLjQiIHN0b3AtY29sb3I9IiNmZmZmZmYiLz48c3RvcCBvZmZzZXQ9IjAuNjIiIHN0b3AtY29sb3I9IiNlMGUwZTAiLz48c3RvcCBvZmZzZXQ9IjAuNzciIHN0b3AtY29sb3I9IiNlY2VjZWMiLz48L3JhZGlhbEdyYWRpZW50PjxyZWN0IHg9IjAlIiB5PSIwJSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2VjZWNlYyIgLz48cmVjdCB4PSItMTAyLjkzOTUlIiB5PSItMTM3LjMwNTklIiB3aWR0aD0iMjkzLjg3OSUiIGhlaWdodD0iMjQ2LjYxMTglIiBmaWxsPSJ1cmwoI2cpIiAvPjwvc3ZnPg==);
+background-image: -webkit-gradient(radial, 44% -14%, 0, 44% -14%, 176, color-stop(40%, #ffffff), color-stop(62%, #e0e0e0), color-stop(77%, #ececec));
+background-image: -webkit-radial-gradient(44% -14%, farthest-corner circle, #ffffff 40%, #e0e0e0 62%, #ececec 77%);
+background-image: -moz-radial-gradient(44% -14%, farthest-corner circle, #ffffff 40%, #e0e0e0 62%, #ececec 77%);
+background-image: -ms-radial-gradient(44% -14%, farthest-corner circle, #ffffff 40%, #e0e0e0 62%, #ececec 77%);
+background-image: -o-radial-gradient(44% -14%, farthest-corner circle, #ffffff 40%, #e0e0e0 62%, #ececec 77%);
+background-image: radial-gradient(farthest-corner circle at 44% -14%, #ffffff 40%, #e0e0e0 62%, #ececec 77%);
+ box-shadow:inset 0 0 10px #cecece;
+}
+
+.os:hover{
+display: inline-block;
+  *display: inline;
+  padding: 4px;
+  margin-bottom: 0;
+  margin-right:10px;
+  *margin-left: .3em;
+  margin:4px;
+  font-size: 13px;
+  line-height: 18px;
+  *line-height: 20px;
+  height:50px;
+  width:50px;
+  border-radius:3px;
+  border: #e20074  1px solid;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+background-image: -webkit-gradient(radial, 44% -14%, 0, 44% -14%, 176, color-stop(25%, #ffffff), color-stop(55%, #b4b4b4), color-stop(57%, #9e9e9e), color-stop(85%, #666666));
+background-image: -webkit-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -moz-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -ms-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -o-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: radial-gradient(farthest-corner circle at 44% -14%, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+box-shadow: 2px 2px 2px 2px #888888;
+ box-shadow:inset 0 0 10px #484848;
+}
+
+
+#download .activeicon { 
+ display: inline-block;
+  *display: inline;
+  padding: 4px;
+  margin-bottom: 0;
+  *margin-left: .3em;
+  margin:4px;
+  font-size: 13px;
+  line-height: 18px;
+  *line-height: 20px;
+  height:50px;
+  width:50px;
+  border-radius:3px;
+  border: #e20074  1px solid;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+background-image: -webkit-gradient(radial, 44% -14%, 0, 44% -14%, 176, color-stop(25%, #ffffff), color-stop(55%, #b4b4b4), color-stop(57%, #9e9e9e), color-stop(85%, #666666));
+background-image: -webkit-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -moz-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -ms-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: -o-radial-gradient(44% -14%, farthest-corner circle, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+background-image: radial-gradient(farthest-corner circle at 44% -14%, #ffffff 25%, #b4b4b4 55%, #9e9e9e 57%, #666666 85%);
+box-shadow: 2px 2px 2px 2px #888888;
+ box-shadow:inset 0 0 10px #484848;
+
+}
+
+#select-version ul li,#activate-iphone button{
+	list-style:none;
+	margin-bottom: 4px;
+	border: #e20074  1px solid;
+}
+#select-version ul{
+	margin: 0px;
+}
+#select-version ul li a,#activate-iphone button{
+	text-decoration:none;
+	color: #e20074;
+}
+/*END - SPN WebRac Client Page*/

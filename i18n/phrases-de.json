@@ -1,0 +1,84 @@
+{
+	"slogan": "Erleben, was verbindet.",
+	"connect": "Jetzt verbinden",
+	"faqs": "FAQs",
+	"welcome": "Willkommen bei ClearPath Networks!",
+	"intro": "Hier können Sie Ihr ClearPath Secure Private Network verwalten und die für Ihr System passende Zugangssoftware herunterladen. Nach erfolgreichem Download und Installation auf Ihrem System können Sie jederzeit über die Buttons „Verbinden“ und „Trennen“ eine sichere Verbindung zu Ihrem Secure Private Network herstellen bzw. diese trennen. So einfach geht´s für Sie sicher in die „Cloud“!",
+	"lowmem": "Diese Anwendung benötigt sehr geringe Speicherkapazitäten auf Ihrem Computer oder Server. Von daher beeinträchtigt sie die Leistungsfähigkeit Ihrer Anwendungen, die auf der gleichen Hardware laufen, nicht.",
+	"vpnrac-connect": "Mein Secure Private Network",
+	"vpnrac-disconnect": "Trennen Sie Secure Private Network",
+	"vpnrac": {
+		"on": "Verbinden",
+		"off": "Trennen",
+		"peers": "Mit Usern / Servern verbinden",
+		"nopeers": "Aktuell keine Verbindungen mit Usern / Servern möglich",
+		"progress": {
+			"wait": "Bitte warten...",
+			"timeout": "Verbindung fehlgeschlagen. Bitte erneut auf ?Verbinden? klicken",
+			"success": "Verbindung erfolgreich hergestellt!"
+		}
+	},
+	"manage": {
+		"title": "Verwalten",
+		"serverkeys": {
+			"title": "Server Keys",
+			"usage": {
+				"title": "Nutzungshinweis",
+				"text": "Um den permanenten, sicheren Zugriff auf einen Ihrer Server über ClearPath Secure Private Network zu ermöglichen, müssen Sie während der Software-Installation einen Ihrer verfügbaren Server Keys eingeben. Hierzu folgen Sie bitte den Hinweisen in der entsprechenden Installationsanleitung."
+			},
+			"table": "Ihre Server Keys"
+		},
+		"connections": {
+			"title": "Verbindungen anzeigen",
+			"heading": "Aktive Verbindungen",
+			"table": {
+				"email": "E-Mail",
+				"ip": "IP-Adresse",
+				"since": "Seit",
+				"received": "Empfangen",
+				"sent": "Gesendet"
+			}
+		},
+		"close": "Schließen"
+	},
+	"select": {
+		"os": "Betriebssystem auswählen",
+		"version": "Version auswählen"
+	},
+	"remoteaccess": {
+		"title": "Fernzugriff",
+		"text":  "Alles was Sie brauchen ist ein Zugang zum Internet und die Verbindung wird automatisch aufgebaut. So haben Sie von jedem Ort mit WLAN oder fester Internetverbindung eine sichere und verschlüsselte Verbindung zwischen Ihrem Computer und allen anderen aktivierten Servern oder Computern."
+	},
+	"dataloss": { 
+		"title": "Schutz vor Datenverlust",
+		"text": "Erlauben Sie nur den Servern und Computern Zugriffe auf Ihre wichtigen und vertraulichen Unternehmensdaten, die Sie dazu autorisiert haben. Ihre Verbindungen und Informationen bleiben vor fremden Zugriffen aus dem Internet geschützt."
+	},
+	"encryption": {
+		"title": "Verschlüsselung",
+		"text": "Verhindern Sie den unerlaubten Zugriff auf Ihre wichtigen Daten und Anwendungen. Diese Anwendung verschlüsselt automatisch alle Inhalte, die zwischen Ihnen und weiteren Secure Private Network Benutzern und Servern über das Internet übertragen werden."
+	},
+	"alert": {
+		"sessionInvalid": {
+			"title": "Danke für Ihren Besuch!",
+			"text": "Nachdem Sie sich am Business Marketplace Portal angemeldet haben, kommen Sie hierher zurück, um an Ihrem Secure Private Network teilzunehmen."
+		},
+		"sessionExpired": {
+			"title": "Ihre Session ist abgelaufen!",
+			"text": "Bevor Sie sich wieder sicher mit Ihrem Secure Private Network verbinden können, melden Sie sich bitte im Business Marketplace an und versuchen Sie es erneut."
+		},
+		"retry": "Nochmal versuchen?",
+		"return": "Zurück zum Business Marketplace"
+	},
+	"requirements": "Systemanforderungen",
+	"pre1": "Intel Pentium® Class Prozessor oder höher, empfohlen mindestens 1 Ghz., 512 MB Arbeitsspeicher (1 GB empfohlen) und mindestens 10 MB freier Festplattenspeicher",
+	"pre2": "Web Browser: MS Internet Explorer 6 oder  höher, Google Chrome, Mozilla Firefox 3 oder höher, Apple Safari 5 oder höher",
+	"oneofos": "Eines der folgenden Betriebssysteme:",
+	"languages": "Languages supported – English (US), Deutsch (De), French (Fr), Italian (IT) (Note : Language installer selected based on language preference selected on the portal)",
+	"dotnet": "(.Net Framework 3.5 oder höher)",
+	"installguide": "Installationsanleitungen",
+	"install": {
+		"win": "Installationsanleitung für Windows (PDF)",
+		"mac": "Installationsanleitung für MAC OSX (PDF)",
+		"linux": "Installationsanleitung für Linux (PDF)"
+	}
+}
