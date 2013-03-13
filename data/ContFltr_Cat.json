@@ -1,0 +1,16 @@
+[
+		{"id":"c1","name":"Adult", "blocked":"true"},
+		{"id":"c2","name":"Advertisement", "blocked":"false"},
+		{"id":"c3","name":"Chat", "blocked":"true"},
+		{"id":"c4","name":"Computing & Internet", "blocked":"false"},
+		{"id":"c5","name":"Drugs,Alcohl,Tobaco", "blocked":"false"},
+		{"id":"c6","name":"Education", "blocked":"false"},
+		{"id":"c7","name":"Food & Drink", "blocked":"true"},
+		{"id":"c8","name":"Gambling", "blocked":"false"},
+		{"id":"c9","name":"Glamour & intimate apparel", "blocked":"true"},
+		{"id":"c10","name":"Gov & Politics", "blocked":"true"},
+		{"id":"c11","name":"Hate Speech", "blocked":"false"},
+		{"id":"c12","name":"Health & Medicine", "blocked":"true"},
+		{"id":"c13","name":"Hosting sites", "blocked":"true"}	
+]
+	

@@ -393,3 +393,36 @@ function getCookie(name) {
 function deleteCookie(name) {
 	setCookie(name, "", -1);
 }
+
+/*os_icon show hide */
+
+		$(document).ready(function(){
+
+
+		   $('.os').click(
+		   function(e){
+				e.preventDefault;
+				$('.activeicon ').removeClass('activeicon');
+				$(this).addClass('activeicon');
+				
+  
+			});
+
+		 $('.but_download').click(
+				   function(e){
+						e.preventDefault;
+						$('.activeicon ').removeClass('activeicon');
+						$(this).addClass('activeicon');
+
+					});
+		$('a').click(
+		   function(e){
+				e.preventDefault;
+				$('.but_activeicon').removeClass('but_activeicon');
+				$(this).addClass('but_activeicon')
+			});
+				});
+	
+
+    
+/* load id content */
