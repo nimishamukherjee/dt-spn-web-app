@@ -424,5 +424,13 @@ function deleteCookie(name) {
 				});
 	
 
+
+/* load id content */
+function showDiv(div) {
+document.getElementById('page_server_keys').style.display = 'none';
+document.getElementById('page_view_connections').style.display = 'none';
+document.getElementById('page_utm').style.display = 'none';
+document.getElementById('page_'+div).style.display = 'block';
+}
     
 /* load id content */

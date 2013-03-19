@@ -12,10 +12,20 @@ function fnUpdateSectionDisplay(ref){
   			}
 		});
 	}
-
 }
 
-
+function fnUpdateUTMDisplay(ref){
+	$(".section").addClass("hidden");
+	$(ref).removeClass("hidden");
+		$('.sidebar-nav').removeClass("hide")
+		$( ".sidebar-nav li" ).each(function( index ) {
+  			$(this).find('a').removeClass("active_tab");
+  			var hrefis = ($(this).find('a').attr("href").toLowerCase()).replace("#","");
+  			if(ref.toLowerCase().indexOf(hrefis)>=0){
+  				$(this).find('a').addClass("active_tab");  				
+  			}
+		});
+}
 //Modal variables
 var modalType, modalSection, secondAlert = false;
 function fnShowAlert(msg,type,section){
@@ -47,3 +57,17 @@ $(".modal-footer button").on('click', function(){
 		break;
 	}
 })
+dust.helpers.counter = function (chunk, ctx, bodies, params) {
+  	switch(params.operand){
+  		case "++":
+  			vlanCtr++;
+  		break;
+  		case "--":
+  			vlanCtr++;
+  		break;
+  		default:
+  			vlanCtr;
+  		break;
+  	}
+    	return chunk.write(vlanCtr);
+   }

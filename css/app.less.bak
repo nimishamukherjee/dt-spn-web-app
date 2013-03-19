@@ -1809,8 +1809,8 @@ hr {
         background-image: -ms-linear-gradient(top, #fafafa, #ddd);
         background-image: -o-linear-gradient(top, #fafafa, #ddd);
         background-image: linear-gradient(top, #fafafa, #ddd);
-		text-decoration:none;
-		color:#000000!important;
+        text-decoration:none;
+        color:#000000!important;
     }
     
     .button:active
@@ -1841,68 +1841,42 @@ hr {
         -moz-border-radius: .15em 0 0 .15em;
         -webkit-border-radius: .15em 0 0 .15em;
         border-radius: .15em 0 0 .15em;     
-        pointer-events: none;		
+        pointer-events: none;       
     }
-	
-	/* Buttons and inputs */
-	
-	button.button, input.button 
-	{ 
-		cursor: pointer;
-		overflow: visible; /* removes extra side spacing in IE */
-	}
-	
-	/* removes extra inner spacing in Firefox */
-	button::-moz-focus-inner 
-	{
-	  border: 0;
-	  padding: 0;
-	}
-	
-	/* If line-height can't be modified, then fix Firefox spacing with padding */
-	 input::-moz-focus-inner 
-	{
-	  padding: .4em;
-	}
+    
+    /* Buttons and inputs */
+    
+    button.button, input.button 
+    { 
+        cursor: pointer;
+        overflow: visible; /* removes extra side spacing in IE */
+    }
+    
+    /* removes extra inner spacing in Firefox */
+    button::-moz-focus-inner 
+    {
+      border: 0;
+      padding: 0;
+    }
+    
+    /* If line-height can't be modified, then fix Firefox spacing with padding */
+     input::-moz-focus-inner 
+    {
+      padding: .4em;
+    }
 
-	/* The disabled styles */
-	.button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover 
-	{
-		background: #eee;
-		color: #aaa;
-		border-color: #aaa;
-		cursor: default;
-		text-shadow: none;
-		position: static;
-		-moz-box-shadow: none;
-		-webkit-box-shadow: none;
-		box-shadow: none;		
-	}
-    
-    /* Hexadecimal entities for the icons */
-    
-    .add:before
+    /* The disabled styles */
+    .button[disabled], .button[disabled]:hover, .button.disabled, .button.disabled:hover 
     {
-        content: "\271A";
-		margin-right:7px !important;
-    }
-    
-    .edit:before
-    {
-        content: "\270E"; 
-		margin-right:7px !important;       
-    }
-    
-    .delete:before
-    {
-        content: "\2718";  
-		margin-right:7px !important;      
-    }
-    
-    .save:before
-    {
-        content: "\2714";  
-		margin-right:7px !important;      
+        background: #eee;
+        color: #aaa;
+        border-color: #aaa;
+        cursor: default;
+        text-shadow: none;
+        position: static;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;       
     }
     
     /* Hexadecimal entities for the icons */

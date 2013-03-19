@@ -8,7 +8,7 @@
 <meta name="description" content="Secure Private Network Access Page"/>
 <meta name="author" content="ClearPath Networks, Inc."/>
 <!-- Le styles -->
-<link rel="stylesheet/less" href="css/app.less" id="abc123"/>
+<link rel="stylesheet/less" href="css/dtspn.less" id="abc123"/>
 <link href="css/bootstrap.css" rel="stylesheet"/>
 <link href="css/bootstrap-responsive.css" rel="stylesheet"/>
 <link href="css/bootstrap-toggle-buttons.css" rel="stylesheet">
@@ -39,7 +39,7 @@
       <ul class="nav nav-tabs">
         <li class="active main-admin-nav"><a href="#tabs1-pane1" data-toggle="tab">Client</a></li>
         <li class="main-admin-nav"><a href="#tabs1-pane2" data-toggle="tab">Manage</a></li>
-        <li class="main-admin-nav"><a href="sites.html">Sites</a></li>
+        <li class="main-admin-nav"><a href="#tabs1-pane3" data-toggle="tab">Sites</a></li>
       </ul>
       <!-- Tabs -->
       <!-- Tab content -->
@@ -179,7 +179,7 @@
           <div class="tabbable tabs-left">
             <ul class="nav nav-tabs nav-tabs-inner nav-pills-manage">
               <li class="active"><a href="#Serverkeys">Server Keys</a></li>
-              <li><a href="#view" >View Connections</a></li>
+              <li><a href="#view">View Connections</a></li>
               <li ><a href="#utm">UTM</a></li>
             </ul>
             <!--================================================ Manage Tabs - Content================================================== -->
@@ -233,28 +233,28 @@
                     <h3 class="utmSub_heading">Content Filter</h3>
                     <div id="ContFltrToggle"></div>
                   </div>
-                  <div id="CatContainer" style="display:none" class="utm_cat_box">
+                  <div id="CatContainer" style="display:none" class="box_rounded">
                     <form action="#" id="form" name="form">
-                      <div class="utm_cat_head"> Select Categories to block</div>
+                      <div class="box_rounded_head"> Select Categories to block</div>
                       <ul id="CatList">
                       </ul>
                       <div  id="bottom_buttons">
                         <center>
                           <div class="but_cat">
-                            <button type="submit" class="btn btn-primary submit disabled" style="cursor:pointer;" >Submit</button>
-                            <input type="reset" class="btn btn-primary refresh disabled"  style="cursor:pointer;"  value="Reset" />
+                            <button type="submit" class="button submit disabled" style="cursor:pointer;">Submit</button>
+                            <input type="reset" class="button refresh disabled reset_but"  style="cursor:pointer;" value="Reset" />
                           </div>
                         </center>
                       </div>
                     </form>
                   </div>
                 </div>
-                <div id="BlkLstContainer" style="display:none" class="utm_cat_box">
+                <div id="BlkLstContainer" style="display:none" class="box_rounded">
                   <div class="utm_blklist_head"> Black listed sites</div>
                   <form action="#" id="form" name="BlkLstform">
                     <div class="input_block">
                       <input type="text" class="input-medium" id="itemToAdd"   placeholder="Enter URL to block"/>
-                      <button type="button" class="btn btn-primary block" id="opener" >Block</button>
+                      <button type="button" class="button block" id="opener" >Block</button>
                     </div>
                     <ul id="BlkLst">
                     </ul>
@@ -271,7 +271,13 @@
 				</span>	
 				</script>
                 <script id="BlackListTemplate" type="text/html">
-				<a href="{url}" id="{id}">{url}</a><img src="img/but_delete.png" height="36px" width="38px" alt="Delete" class="delete" />
+                <div class="l_float width_url">
+        				<a href="{url}" id="{id}">{url}</a>
+      </div>
+      <div class="l_float ">
+      <img src="img/but_deletebox.png" height="36px" width="38px" alt="Delete" class="delete" />
+        
+</div>
 				</script>
                 <script id="AntivirusTemp" type="text/html">
 				<span class="span2"><label>Turn Antivirus</label></span>
@@ -295,58 +301,64 @@
           <!-- /.tab-content -->
         </div>
         <!-- /.tabbable -->
-        <!--================================================== S I T E S C O N T E N T ==================================================        
-        <div class="tab-pane border_tabs" id="tabs1-pane3">
-          <div class="row_manage">
-            <div class="span2">
-             
-              <div class="sidebar-nav hide">
-                <ul class="nav nav-pills-manage nav-stacked">
-                  <li><a href="#deviceInfo" class="active_tab">Device Information</a></li>
-                  <li><a href="#firewall">Firewall</a></li>
-                  <li><a href="#network">Network</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="span10_list">
-            
-              <div class="section" id="listofdevices">
-                <h4 class="active">List of Devices</h4>
-                Click on each device to view and modify its information, firewall rules, and network interfaces
-                <table class="table" id="activateddevicelist">
-                  <thead>
-                    <tr>
-                      <th class="span4">Device Name</th>
-                      <th class="span2">Device Type</th>
-                    </tr>
-                  </thead>
-                </table>
-               
-                <h4 class="active">Device pending activation</h4>
-                Click on a device to activate it
-                <table class="table table-striped" id="pendactivatedevlist">
-                  <thead>
-                    <tr>
-                      <th class="span4">Device Type</th>
-                    </tr>
-                  </thead>
-                </table>
-              </div>
-             
-              <div class="section hidden" id="activateadevice"> <span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Activate a Device</b> </span> <br />
-                <br />
-              </div>
-            
-              <div class="section hidden" id="eachDeviceInformation"> </div>
-             
-              <div class="section hidden" id="viewFirewall"> <span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Firewall Rules (<span class="deviceNm"></span>)</b> </span> <br />
-                <br />
-              </div>
-
-              <div class="section hidden" id="viewNetwork"> dfdfdf </div>
-            </div>
-          </div>
+        <!--================================================== S I T E S C O N T E N T ================================================== -->       
+         <div class="tab-pane border_tabs" id="tabs1-pane3">
+    <div class="span2">
+      <!--Main menu on the left side-->
+      <div class="sidebar-nav hide">
+        <ul class="nav nav-tabs nav-tabs-inner">
+          <li><a href="#deviceInfo" class="active_tab">Device Information</a></li>
+          <li><a href="#firewall">Firewall</a></li>
+          <li><a href="#network">Network</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="span10_sites">
+      <!--View List of devices-->
+      <div class="section" id="listofdevices">
+        <h4 class="active">List of Devices</h4>
+        <div class="sub_heading">Click on each device to view and modify its information, firewall rules, and network interfaces</div>
+        <table style="border-collapse:separate; border-spacing: 0" class="table" id="activateddevicelist">
+          <thead class="dev_table_header">
+            <tr>
+              <th class="span4">Device Name</th>
+              <th class="span2">Device Type</th>
+            </tr>
+          </thead>
+        </table>
+        <!--Devices pending activation-->
+        <h4 class="active">Device pending activation</h4>
+        <div class="sub_heading">Click on a device to activate it</div>
+        <table class="table table-striped" style="border-collapse:separate; border-spacing: 0" id="pendactivatedevlist">
+          <thead class="dev_table_header">
+            <tr>
+              <th class="span4">Device Type</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <!--====ACTIVATE A DEVICE===-->
+      <div class="span10_content r_content">
+        <div class="section hidden" id="activateadevice"> <span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Activate a Device</b> </span> 
+          <hr>
         </div>
+        <!--====VIEW A DEVICE'S INOFRMATION===-->
+        <div class="section hidden box_inner" id="eachDeviceInformation"> </div>
+        <!--====FIREWALL===-->
+        <div class="section box_inner hidden" id="viewFirewall"> <span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Firewall Rules (<span class="deviceNm"></span>)</b> </span> 
+           <hr>
+          <div id="firewallrules"></div>
+        </div>
+        <!--====Network===-->
+        <div class="section hidden" id="viewNetwork">
+          <span class="breadcrumb"><a href="">Devices Information</a>  / <b class="active"> Network Interfaces (<span class="deviceNm"></span></b>) </span>
+         <hr>
+                 
+        <div id="networkinterfaces"></div>
+        </div>
+      </div>
+    </div>
+  </div>
      <!--================================================== S I T E S C O N T E N T E N D ==================================================     -->
         <div id="msgModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-header">
@@ -383,179 +395,541 @@
 <!-- .container -->
 <!-- json content -->
 
-
 <!--====LIST OF DEVICES===-->
 <script type="text/template" id="activatedDevicesTemplate">
-<td class="span4" id="{id}"><a href="#deviceInfo">{name}</a></td>
-<td class="span2">{type}</td>
+  <td class="span4" id="{id}"><a href="#deviceInfo" class="device_txt">{name}</a></td>
+  <td class="span2">{type}</td>
 </script>
 <script type="text/template" id="pendingActivationTemplate">
-<td class="span2"><a href="#activate">{type}</a></td>
+  <td><a href="#activate">{type}</a></td>
 </script>
-
-
 <!--====ACTIVATE A DEVICE===-->
 <script type="text/template" id="activateAdeviceTemplate">  
-<p><b class="active"> Activate</b><b> - {type}</b></p>
-<form action="#" id="form" name="form">
-<div>Device name: <input type="text" class="input-medium" name="name" value="{name}" placeholder="My Device Name"/></span></div> 
-<div>Serial number: <input type="text" class="input-medium" name="serial" value="{serial}" placeholder="xxxxxxxxx"/></span></div>
-<div class="hide"><input type="text" class="input-medium" name="type" value="{type}" /></div>
-</form>
-<div class="span6 pull-right"><button title="Cancel Rule" class="btn btn-danger cancel">Cancel</button><button title="activate" class="btn btn-primary activateDevice">Activate</button></div>
+  <p><b class="active"> Activate</b><b> - {type}</b></p>
+  <form action="#" id="form" name="form">
+  <div>Device name: <input type="text" class="input-medium" name="name" value="{name}" placeholder="My Device Name"/></span></div> 
+  <div>Serial number: <input type="text" class="input-medium" name="serial" value="{serial}" placeholder="xxxxxxxxx"/></span></div>
+  <div class="hide"><input type="text" class="input-medium" name="type" value="{type}" /></div>
+  </form>
+  <div class="span6 pull-right">
+  <a href="#" class="button cancel" title="Cancel">Cancel</a>
+  <a href="#" class="button activateDevice" title="activate">Activate</a>
+  </div>
 </script>
-
-
 <!--====VIEW A DEVICE'S INFORMATION===-->
 <script type="text/template" id="deviceInfoViewTemplate">
-<span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Device Details ({name})</b> </span>
-<br /><br />
-<div class="box">
-<div class="row-fluid"><div class="span2"><b>Device Name:</b></div><div class="span2">{name}</div></div>
-<div class="row-fluid"><div class="span2"><b>Device ID:</b></div><div class="span2">{id}</div></div>
-<div class="row-fluid"><div class="span2"><b>Type:</b></div><div class="span2">{type}</div></div>
-<div class="row-fluid"><div class="span2"><b>Status:</b></div><div class="span2">{status}</div></div>
-<div class="row-fluid"><div class="span2"><b>Location:</b></div><div class="span2">{location}</div></div>
-<div class="row-fluid"><div class="span2"><b>Serial:</b></div><div class="span2">{serial}</div></div> 
+  <span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Device Details ({name})</b> </span>
+   <hr>
+<div class="box_view">
+    <div class="row-fluid"><div class="span2 span2_device"><b>Device Name:</b></div><div class="span2">{name}</div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Device ID:</b></div><div class="span2">{id}</div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Type:</b></div><div class="span2">{type}</div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Status:</b></div><div class="span2">{status}</div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Location:</b></div><div class="span2">{location}</div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Serial:</b></div><div class="span2">{serial}</div></div>  
+    
+<div id="bottom_buttons">
+    <center>
+      <div class="but_cat">
+      <a href="#" class="button edit editDevice" class="" title ="Edit Rule">Edit</a>
+      <a href="#" class="button delete deleteDevice" class="" title ="Delete Rule">Delete</a>
+      </div>
+    </center>
+  </div>
 </div>
-<div class="span6 pull-right"><button title="Edit Device" class="btn btn-primary editDevice">Edit</button><button title="Cancel Rule" class="btn btn-danger deleteDevice">Delete</button></div>
 </script>
 <script type="text/template" id="deviceInfoEditTemplate">
+<span class="breadcrumb"><a href="">Devices Information</a> / <b class="active"> Device Details ({name})</b> </span>
+  <br /><br />
 <div class="box">
-<form action="#" id="form" name="form">
-<div class="row-fluid"><div class="span2"><b>Device Name:</b></div><div class="span2"><input type="text" class="input-medium" name="name" value="{name}" placeholder="My Device Name"/></div></div>
-<div class="row-fluid"><div class="span2"><b>Device ID:</b></div><div class="span2"><input type="text" class="input-medium" name="id" value="{id}" readonly="readonly"/></div></div>
-<div class="row-fluid"><div class="span2"><b>Type:</b></div><div class="span2"><input type="text" class="input-medium" name="type" value="{type}" readonly="readonly"/></div></div>
-<div class="row-fluid"><div class="span2"><b>Status:</b></div><div class="span2"><input type="text" class="input-medium" name="status" value="{status}" readonly="readonly"/></div></div>
-<div class="row-fluid"><div class="span2"><b>Location:</b></div><div class="span2"><input type="text" class="input-medium" name="location" value="{location}" /></div></div>
-<div class="row-fluid"><div class="span2"><b>Serial:</b></div><div class="span2"><input type="text" class="input-medium" name="serial" value="{serial}" /></div></div>
-</form>
+  <form action="#" id="form" name="form">
+    <div class="row-fluid"><div class="span2 span2_device"><b>Device Name:</b></div><div class="span2"><input type="text" class="input-medium" name="name" value="{name}" placeholder="My Device Name"/></div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Device ID:</b></div><div class="span2"><input type="text" class="input-medium" name="id" value="{id}" readonly="readonly"/></div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Type:</b></div><div class="span2"><input type="text" class="input-medium" name="type" value="{type}" readonly="readonly"/></div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Status:</b></div><div class="span2"><input type="text" class="input-medium" name="status" value="{status}" readonly="readonly"/></div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Location:</b></div><div class="span2"><input type="text" class="input-medium" name="location" value="{location}" /></div></div>
+    <div class="row-fluid"><div class="span2 span2_device"><b>Serial:</b></div><div class="span2"><input type="text" class="input-medium" name="serial" value="{serial}" /></div></div>
+  </form>
+  
+  <div id="bottom_buttons">
+    <center>
+      <div class="but_cat">
+      <a href="#" class="button save saveDeviceEdits" title="Save Edits">Save</a>
+      <a href="#" class="button cancelDeviceEdits" title="Cancel">Cancel</a>
+      <a href="#" class="button delete disabled" title="Delete Rule">Delete</a>
+      </div>
+    </center>
+  </div>
 </div>
-<div class="span6 pull-right"><button title="Save Edits" class="btn btn-primary saveDeviceEdits">Save</button><button title="Cancel" class="btn btn-danger cancelDeviceEdits">Cancel</button></div>
+
 </script>
-
-
 <!--====FIREWALL===-->
 <script type="text/template" id="ruleViewTemplate">
 <div class="row rule">
-<div class="span2"><b>{name}</b></div>    
-<div class="span4"><b>{description}</b></div>
-<div class="span2"><b>Rule : {action}</b></div>
+  <div class="span2 name"><b>{name}</b></div>   
+  <div class="span4 desc"><b>{description}</b></div>
+  <div class="span2 rule_col3"><b>Rule : {action}</b></div>
 <div class="span4">
-<button title="Edit Rule" class="btn btn-primary editRule">Edit Rule</button><button title="Delete Rule" class="btn btn-danger removeRule">Delete Rule</button>
+<a href="#" class="button edit editRule" width="38" height="38" class="" title ="Edit Rule">Edit Rule</a>
+<a href="#" class="button delete removeRule" width="38" height="38" title="Delete Rule">Delete</a>
 </div>
 </div>
 </script>
-
-
 <script type="text/template" id="ruleEditTemplate">
-<form action="#" id="form" name="form">
-<div class="row rule">
-<div class="span8"><input type="text" class="input-large" name="name" value="{name}" placeholder="Enter rule name"/></div>
-<div class="hidden">{#id}(<input type="text" class="input-large" name="id" value="{id}"/>){:else}{/id}</div>
-<div class="span4"><button title="Save Rule" class="btn btn-primary saveRule">Save Rule</button>
-<button title="Cancel Rule" class="btn btn-danger cancel">Cancel</button></div>   
-</div>       
-<div class="box">
-<div class="row-fluid">
-<div class="span4">Rule description: <input type="text" class="input-large" name="description" value="{description}" placeholder="Enter rule description"/></div> 
-<div class="span4">Action: <select name="action" class="dropdown" id="action"><option>Accept</option>,<option>Reject</option><option>Drop</option><option>Port Forward</option><option>Service bypass</option></select></div>
-<div class="span4 proto">Protocol: <select name="protocol" class="dropdown" id="protocol"><option>IP</option><option>RDP</option><option>Drop</option><option>RSVP</option><option>GRE</option><option>ESP</option><option>AH</option><option>L2TP</option><option>ICMP</option><option>TCP</option><option>UDP</option></select></div>
-</div>
-<div class="row-fluid">
-<div class="span4 box source">
-<div class="mainmod">
-<b>Source</b><br />
-<span class="range"><b>Range :</b> <select name="source[range]" class="dropdown"><option>Any</option><option>Network</option><option>Host</option></select></span><br />
-<span class="sourceip"><b>IP :</b> <input type="text" class="input-medium" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/></span><br />
-<span class="sourcesubnet"><b>Subnet Mask :</b> <input type="text" class="input-medium" name="source[subnetmask]" value="{source.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-<span class="operatorset hidden"><b>Operator :</b> <select name="source[operator]" class="dropdown"><option>equal</option><option>range</option></select><br /></span>
-<span class="operatorset hidden sourceportfrom"><b>Port :</b> <input type="number" class="input-small" name="source[port][from]" value="{source.port.from}" placeholder="xxxx"/></span>
-<span class="operatorset hidden sourceportto"><input type="number" class="input-small" name="source[port][to]" value="{source.port.to}" placeholder="xxxx"/></span>
-</div>
-<div class="notes hidden">
-<b>Enter IP Address</b><br />
-<input type="text" class="input-medium" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/><br />
-</div>
-</div>    
-<div class="span4 box destination">
-<div class="mainmod">
-<b>Destination</b><br />
-<span class="range"><b>Range :</b> <select name="destination[range]" class="dropdown"><option>Any</option><option>Network</option><option>Host</option></select></span><br />
-<span class="destinationip"><b>IP :</b> <input type="text" class="input-medium" name="destination[ip]" value="{destination.ip}" placeholder="xxx.xxx.xxx.xxx"/></span><br />
-<span class="destinationsubnet"><b>Subnet Mask :</b> <input type="text" class="input-medium" name="destination[subnetmask]" value="{destination.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-<span class="operatorset hidden"><b>Operator :</b> <select name="destination[operator]" class="dropdown"><option>equal</option><option>range</option></select><br /></span>
-<span class="operatorset hidden destinationportfrom"><b>From :</b> <input type="number" class="input-small" name="destination[port][from]" value="{destination.port.from}" placeholder="xxxx"/></span>
-<span class="operatorset hidden destinationportto"><b>To :</b> <input type="number" class="input-small" name="destination[port][to]" value="{destination.port.to}" placeholder="xxxx"/></span>
-</div>
-<div class="notes hidden">
-<b>Notes</b><br />
-<input type="text" class="input-medium" name="notes" value="{notes}" placeholder="xxx.xxx.xxx.xxx"/><br />
-</div>
+  <form action="#" id="form" name="form">
+  <div class="row rule_edit">
+    
+    
+  <div class="box inner_box">
+  <div class="span4 width_rule"><span class="lbl_text">Name:</span><input type="text" class="input-large textbox" name="name" value="{name}" placeholder="Enter rule name"/></div>
+    <div class="row-fluid">
+      <div class="span4 width_rule"><span class="lbl_text">Description:</span><input type="text" class="input-large textbox_desc" name="description" value="{description}" placeholder="Enter rule description"/></div> 
+      <div class="span4 width_rule"><span class="lbl_text">Action:</span> <select name="action" class="dropdown" id="action"><option>Accept</option>,<option>Reject</option><option>Drop</option><option>Port Forward</option><option>Service bypass</option></select></div>
+      <div class="span4 proto width_rule"><span class="lbl_text">Protocol:</span><select name="protocol" class="dropdown" id="protocol"><option>IP</option><option>RDP</option><option>Drop</option><option>RSVP</option><option>GRE</option><option>ESP</option><option>AH</option><option>L2TP</option><option>ICMP</option><option>TCP</option><option>UDP</option></select></div>
+    </div>
 
-</div>    
-<div class="span4 box misc hidden">
-<div class="forwardto">
-<b>Forward To</b><br />
-<b>Range :</b> <select name="forwardto[range]"><option>Host</option></select><br />
-<b>IP :</b> <input type="text" class="input-medium" name="forwardto[ip]" value="{forwardto.ip}" placeholder="xxx.xxx.xxx.xxx"/><br />
-</div>
-<div class="publicvpn">
-<b>Public/VPN</b><br />
-<b>Zone :</b> <select name="forwardto[zone]"><option>Public</option><option>VPN</option></select><br /></span>
-</div>
-</div>
-</div>
-</form>
+  </div>        
+  
+  <div class="row-fluid">
+    <div class="span4 source width">
+      <div class="mainmod">
+      <div class="heading">Source</div>
+        </br>
+        <span class="range"><div class="lbl_text">Range :</div><select name="source[range]" class="dropdown"><option>Any</option><option>Network</option><option>Host</option></select></span><br />
+        <span class="sourceip"><div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/></span><br />
+        <span class="sourcesubnet"><div class="lbl_text">Subnet Mask :</div><input type="text" class="input-medium textbox" name="source[subnetmask]" value="{source.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+        <span class="operatorset hidden"><div class="lbl_text">Operator :</div> <select name="source[operator]" class="dropdown"><option>equal</option><option>range</option></select><br /></span>
+        <span class="operatorset hidden sourceportfrom"><div class="lbl_text">Port :</div> <input type="number" class="input-small" name="source[port][from]" value="{source.port.from}" placeholder="xxxx"/></span>
+        <span class="operatorset hidden sourceportto"><input type="number" class="input-small port_margin" name="source[port][to]" value="{source.port.to}" placeholder="xxxx"/></span>
+      </div>
+      <div class="notes box hidden">
+      <span class="text">
+        Enter IP Address</span>
+        <input type="text" class="input-medium" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/><br />
+      </div>
+    </div>    
+    <div class="span4 destination width">
+      <div class="mainmod">
+      <div class="heading">Destination</div>
+        </br>
+        <span class="range"><div class="lbl_text">Range :</div> <select name="destination[range]" class="dropdown"><option>Any</option><option>Network</option><option>Host</option></select></span><br />
+        <span class="destinationip"><div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="destination[ip]" value="{destination.ip}" placeholder="xxx.xxx.xxx.xxx"/></span><br />
+        <span class="destinationsubnet"><div class="lbl_text">Subnet Mask :</div> <input type="text" class="input-medium textbox" name="destination[subnetmask]" value="{destination.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+        <span class="operatorset hidden"><div class="lbl_text">Operator :</div> <select name="destination[operator]" class="dropdown"><option>equal</option><option>range</option></select><br /></span>
+        <span class="operatorset hidden destinationportfrom lbl_text_from">From :<input type="number" class="input-small textbox" name="destination[port][from]" value="{destination.port.from}" placeholder="xxxx"/></span>
+        <span class="operatorset hidden destinationportto lbl_text_from">To :<input type="number" class="input-small textbox" name="destination[port][to]" value="{destination.port.to}" placeholder="xxxx"/></span>
+      </div>
+      <div class="notes box hidden">
+        <span class="text">Notes</span>
+        <input type="text" class="input-medium" name="notes" value="{notes}" placeholder="xxx.xxx.xxx.xxx"/><br />
+      </div>
+
+    </div>    
+    <div class="span4 misc width hidden">
+      <div class="forwardto mainmod">
+        <div class="heading">Forward To</div>
+        </br>
+        <div class="lbl_text">Range :</div> <select name="forwardto[range]" class="dropdown"><option>Host</option></select><br />
+        <div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="forwardto[ip]" value="{forwardto.ip}" placeholder="xxx.xxx.xxx.xxx"/>
+        <br />
+      </div>
+      <div class="publicvpn mainmod">
+        <div class="heading">Public/VPN</div>
+        </br>
+        <div class="lbl_text">Zone :</div> <select name="forwardto[zone]"><option>Public</option><option>VPN</option></select><br /></span>
+      </div>
+    </div>
+            
+  </div>
+  <div class="hidden">{#id}(<input type="text" class="input-large textbox" name="id" value="{id}"/>){:else}{/id}</div>
+    <div id="bottom_buttons">
+    <center>
+      <div class="but_cat">
+      <a href="#" class="button save saveRule" title="Save Rule">Save</a>
+      <a href="#" class="button cancel" title="Cancel Rule">Cancel</a>
+      
+      </div>
+    </center>
+  </div>  
+  </form>
 </script>
-
-
 <script type="text/template" id="ruleNatEditTemplate">
-<form action="#" id="form" name="form">
-<div class="row rule">
-<div class="span8"><input type="text" class="input-large" name="name" value="{name}" placeholder="Enter rule name"/></div>
-<div class="hidden">{#id}(<input type="text" class="input-large" name="id" value="{id}"/>){:else}{/id}</div>
-<div class="span4"><button title="Save Rule" class="btn btn-primary saveRule">Save Rule</button><button title="Cancel Rule" class="btn btn-danger cancel">Cancel</button></div>   
-</div>       
-<div class="box">
-<div class="row-fluid">
-<div class="span4">Rule description: <input type="text" class="input-large" name="description" value="{description}" placeholder="Enter rule description"/></div> 
+  <form action="#" id="form" name="form">
+  <div class="row rule_edit">
+  <div class="box inner_box">
+    <div class="span4 width_rule"><div class="lbl_text">Name: </div><input type="text" class="input-large textbox" name="name" value="{name}" placeholder="Enter rule name"/></div>
+    <div class="hidden">{#id}(<input type="text" class="input-large textbox" name="id" value="{id}"/>){:else}{/id}</div>
+    <div class="span4 source width_rule"><div class="lbl_text">Description: </div><input type="text" class="input-large textbox" name="description" value="{description}" placeholder="Enter rule description"/></div>    
 </div>
-<div class="row-fluid">
-<div class="span4 box source">
-<b>Source</b><br />
-<b>Range :</b> <select name="source[range]" class="dropdown"><option>Host</option><option>Network</option></select><br />
-<span class="sourceip"><b>IP :</b> <input type="text" class="input-medium" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-<span class="sourcesubnet"><b>Subnet Mask :</b> <input type="text" class="input-medium" name="source[subnetmask]" value="{source.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-</div>    
-<div class="span4 box destination">
-<b>Destination</b><br />
-<b>Range :</b> <select name="destination[range]" class="dropdown" id="range"><option>Any</option><option>Network</option><option>Host</option></select><br />
-<span class="destinationip"><b>IP :</b> <input type="text" class="input-medium" name="destination[ip]" value="{destination.ip}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-<span class="destinationsubnet"><b>Subnet Mask :</b> <input type="text" class="input-medium" name="destination[subnetmask]" value="{destination.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
-</div>    
-<div class="span4 box misc">
-<b>Masquerade As</b><br />
-<b>IP :</b> <input type="text" class="input-medium" name="forwardto[ip]" value="{forwardto.ip}" placeholder="xxx.xxx.xxx.xxx"/><br />
-<b>Zone :</b> <select name="forwardto[zone]"><option>Wan</option><option>Lan</option><option>Vpn</option></select><br /></span>
-</div>    
-</div>
+
+  <div class="row-fluid">
+    <div class="span4 source width">
+        <div class="mainmod">
+      <div class="heading">Source</div><br />
+        <div class="lbl_text">Range :</div> <select name="source[range]" class="dropdown"><option>Host</option><option>Network</option></select><br />
+        <span class="sourceip"><div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="source[ip]" value="{source.ip}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+        <span class="sourcesubnet">><div class="lbl_text">Subnet Mask :</div> <input type="text" class="input-medium textbox" name="source[subnetmask]" value="{source.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+    </div>  
+    </div>  
+    <div class="span4 destination width">
+      <div class="mainmod">
+      <div class="heading">Destination</div><br />
+      <div class="lbl_text">Range :</div> <select name="destination[range]" class="dropdown" id="range"><option>Any</option><option>Network</option><option>Host</option></select><br />
+      <span class="destinationip">><div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="destination[ip]" value="{destination.ip}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+      <span class="destinationsubnet">><div class="lbl_text">Subnet Mask :</div> <input type="text" class="input-medium textbox" name="destination[subnetmask]" value="{destination.subnetmask}" placeholder="xxx.xxx.xxx.xxx"/><br /></span>
+    </div>  
+    </div>  
+    <div class="span4 misc width">
+    <div class="mainmod">
+      <div class="heading">Masquerade As</div><br />
+      <div class="lbl_text">IP :</div> <input type="text" class="input-medium textbox" name="forwardto[ip]" value="{forwardto.ip}" placeholder="xxx.xxx.xxx.xxx"/><br />
+      <div class="lbl_text">Zone :</div> <select name="forwardto[zone]" class="dropdown"><option>Wan</option><option>Lan</option><option>Vpn</option></select><br /></span>
+    </div>    
+    </div>
+  </div>
+  
+  <div id="bottom_buttons">
+    <center>
+      <div class="but_cat">
+      <a href="#" class="button save saveRule" title="Save Edits">Save</a>
+      <a href="#" class="button cancel" title="Cancel Rule">Cancel</a>
+      </div>
+    </center>
+  </div>  
+  
 </form>
 </script>
-
 <script type="text/template" id="firewallViewTemplate">
-<div class="row-fluid underline"> 
-<div class="span10"><b class="custom-color">Policy</b> : <b>{policy} 
-<span class"noforules">{@if cond="{rules.length}"} ({rules.length} rules) {/if}</span>
-</b></div>    
-<div class="span2 right"><button title="Add New Rule" class="btn btn-primary addRule">Add New Rule</button></div>
-</div>
-<div class="row-fluid default">
-<div class="span2 padding-style-left padding-style-top"><b>Default Rule</b></div>
-<div class="span3 padding-style-top">{#default} <b>Default rule:</b>{default} <br />{:else}{/default}</div>
-</div>
+  <div class="row-fluid "> 
+    <div class="span10_policy_heading underline"><b class="active">Policy</b> : <b>{policy} 
+       <span class"noforules">{@if cond="{rules.length}"} ({rules.length} rules) {/if}</span>
+    </b>
+    <div class="span2 right margin">
+    <a href="#" class="button add addRule">Add Rule</a>
+
+    </div>
+    </div>        
+    
+  </div>
+
+  <div class="row-fluid default">
+    <div class="span2 padding-style-left padding-style-top"><b>Default Rule</b></div>
+    <div class="span3 padding-style-top">{#default} <b>Default rule:</b>{default} <br />{:else}{/default}</div>
+  </div>
 </script>
 
+<!--=========N E T W O R K  I N T E R F A C E==========-->
+<script id="networkViewTemplate" type="text/template">  
+  <div class="">
+    <div class="row rule">
+      <div class="row-fluid">
+        <div class="span2 name"><b>{name} ({id})</b></div>
+        {#config}
+          <div class="span1 desc"><b>{#type}Type: {type}{:else}{/type}</b></div>
+          <div class="span1">{#ipaddress}IP: {ipaddress}{:else}{/ipaddress}</div>
+          <div class="span2">{#subnetmask}Netmask: {subnetmask}{:else}{/subnetmask}</div>
+          <div class="span2">{#gateway}Gateway: {gateway}{:else}{/gateway}</div>
+          <div class="span2">{#broadcast}Broadcast: {broadcast}{:else}{/broadcast}</div>        
+        {/config}
+        <div class="span2">
+        <a href="#" class="button edit editInterface" title="Edit Rule">Edit Rule</a></div>
+      </div>
+    </div>
+    {?dhcp}
+    <div class="row rule">
+      <label class="span4 width checkbox margin-sides"><input type="checkbox" readonly="readonly" {?dhcp.enabled}checked{:else}{/dhcp.enabled}><b>Enable DHCP Server</b></label>
+    </div>    
+      {?dhcp.enabled}
+      {?dhcp.ranges}
+      <div class="box">
+      {#dhcp.ranges}<div class="row-fluid">{from} - {to}</div><hr />{/dhcp.ranges}
+      </div>  
+      {/dhcp.ranges}
+        {/dhcp.enabled}
+    {:else}
+        <b>No DHCP Servers</b>
+    {/dhcp}
+    {?staticiproute}
+    <div class="box_rounded margin-sides">
+    
+    <div class="box_rounded_head">Static IP Routes
+    </div>
+    <div class="margin-sides">
+    {#staticiproute}
+      <div class="row-fluid margin-sides">
+        <div class="span3 width"><span class=" lbl_text">Network Host : </span><span class="label_output">{networkhost}</span></div>
+        <div class="span3 width"><span class=" lbl_text">Subnet Mask :</span><span class="label_output"> {subnetmask}</span></div>
+        <div class="span2 width"><span class=" lbl_text">Gateway :</span><span class="label_output"> {gateway}</span></div>
+        <div class="span2 width"><span class=" lbl_text">Share VPN :</span> <input type="checkbox" readonly="readonly"  {#sharevpn}checked{:else}{/sharevpn}></div>
+      </div>  
+      <hr />          
+    {/staticiproute}
+    </div>
+    {:else}
+    <div class="box_rounded margin-sides">
+    <div class="box_rounded_head">No Static IP Routes</div>
+    </div>
+    </div>
+    {/staticiproute}
+    </div>    
+    {?vlaninterfaces}
+    <div class="box_rounded margin-sides">
+    <div class="box_rounded_head">VLAN Interfaces
+    </div>
+
+    {#vlaninterfaces:vlaninterfaces}
+    <div class="">
+      <div class="box_id margin-sides">
+        <div class="row-fluid">
+          <div class="span2 width"><b>ID :</b> {id}</div>
+          {#config}
+            <div class="span1 width">{#type}<b>Type:</b> {type}{:else}{/type}</div>
+            <div class="span1 width">{#ipaddress}<b>IP:</b> {ipaddress}{:else}{/ipaddress}</div>
+            <div class="span2 width">{#subnetmask}<b>Netmask:</b> {subnetmask}{:else}{/subnetmask}</div>
+            <div class="span2 width">{#gateway}<b>Gateway:</b> {gateway}{:else}{/gateway}</div>
+            <div class="span2 width">{#broadcast}<b>Broadcast:</b> {broadcast}{:else}{/broadcast}</div>       
+          {/config}         
+        </div>
+      </div>
+      {?dhcp}
+      <div class="row rule margin-sides">
+        <label class="checkbox"><input type="checkbox" readonly="readonly" {#enabled}checked{:else}{/enabled}><b>Enable DHCP Server</b></label>
+      </div>
+      {#dhcp}       
+        {?enabled}
+        <div class="box_rounded margin-sides">
+        {#ranges}
+          <div class="box_inner margin-sides width"><div class="lbl_text width">From : {from} - </div> -
+          <div class="lbl_text width">To :{to} </div><hr /> </div>            
+          {/ranges}
+          </div>
+        {/enabled}        
+          {/dhcp}
+          {:else}
+          <div class="box_rounded margin-sides">
+        <div class="box_rounded_head">No DHCP Servers</div>
+        </div>
+      {/dhcp}     
+      {?staticiproute}
+      <div class="box_rounded margin-sides">
+        <div class="box_rounded_head">Static IP Routes</div>
+        
+      <div class="margin-sides">    
+        {#staticiproute}
+          <div class="row-fluid">
+            <div class="span3 lbl_text width">Network Host : {networkhost}</div>
+            <div class="span3 lbl_text width">Subnet Mask : {subnetmask}</div>
+            <div class="span2 lbl_text width">Gateway : {gateway}</div>
+            <div class="span2 lbl_text width">Share VPN : <input type="checkbox" readonly="readonly" class="" {#sharevpn}checked{:else}{/sharevpn}></div>
+          </div>
+          <hr />    
+        {/staticiproute}
+      </div>
+      </div>      
+      {:else}
+      <div class="box_rounded margin-sides">
+        <div class="box_rounded_head">No Static IP Routes</div>
+        </div>
+      {/staticiproute}  
+    </div>
+    {/vlaninterfaces}   
+    {:else}
+    <div class="box_rounded margin-sides">
+    <div class="box_rounded_head">No VLAN Interfaces</div>
+    </div>
+    {/vlaninterfaces}
+  </div>
+  </div>
+</script>
+<!--============N E T W O R K  E D I T  T E M P L A T E======================-->
+<script id="networkEditTemplate" type="text/template">  
+  <div class=""><!--main box-->
+    <div class="box margin-sides">
+      <div class="row-fluid">
+        <div class="span8 width"><b>{name} ({id})</b></div>
+
+      </div>
+    
+    <form action="#" id="form" name="form" class="form">  
+    <div class="">
+    <div class="mainmod margin-sides">
+      <div class="heading">Select configuration type:</div>
+      <div class="bg">
+        <label class="radio inline margin-sides ">
+          <input type="radio" name="config[type]" value="static" {@if cond="'{config.type}' == 'static'"}checked{/if} />Manual
+        </label>
+        <label class="radio inline margin-sides ">
+          <input type="radio" name="config[type]" value="dhcp" {@if cond="'{config.type}' == 'dhcp'"}checked{/if} />DHCP
+        </label>      
+        </div>          
+          <div class="row-fluid {@if cond="'{config.type}' == 'dhcp'"}hide{/if}">
+            <div class="span3 width"><span class="lbl_text"> Host : </span><input type="text" class="input-medium textbox" name="config[ipaddress]" value="{ipaddress}" placeholder="xxx.xxx.xxx.xxx"/></div>
+            <div class="span3 width"><span class="lbl_text"> Subnet Mask : </span><input type="text" class="input-medium textbox" name="config[subnetmask]" value="{subnetmask}" placeholder="xxx.xxx.xxx.xxx"/></div>
+            <div class="span3 width"><span class="lbl_text"> Gateway : </span><input type="text" class="input-medium textbox" name="config[gateway]" value="{gateway}" placeholder="xxx.xxx.xxx.xxx"/></div>
+            <div class="span2 width"><span class="lbl_text"> Broadcast : </span><input type="text" name="config[broadcast]" class="textbox" value="{broadcast}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          </div>
+      </div>
+      </div>
+    <!--Base DHCP-->
+    {#dhcp}
+    <div class="row rule">
+      <label class="span4 width checkbox margin-sides"><input type="checkbox" name="dhcp[enabled]" {#enabled}checked{:else}{/enabled}><b>Enable DHCP Server</b></label>
+      {#enabled}
+
+      <div class="span2 right margin_top">
+      <a href="" class="button add addServerRange" title="Add Range">Add Range</a></div>{/enabled}
+    </div>    
+
+    <div class="box margin-sides {^enabled}hide{/enabled}">
+      {#ranges}
+        <div class="row-fluid margin-sides">
+          <b>From : </b><input type="text" class="input-medium" name="dhcp[ranges][{$idx}][from]" value="{from}" placeholder="xxx.xxx.xxx.xxx"/> - 
+          <b>To :</b> <input type="text" class="input-medium" name="dhcp[ranges][{$idx}][to]" value="{to}" placeholder="xxx.xxx.xxx.xxx"/>
+        
+        <a href="" class="button delete deleteserverrange margin-sides" title="Delete Range" id="{$idx}">Delete Range</a>       
+        </div>
+        <hr />
+        {/ranges}
+    </div>    
+        {/dhcp}     
+
+    <!--Base Static ip routes-->
+    <div class="box_rounded margin-sides">
+    <div class="width_common_ip">
+      <a href="" class="button add addStaticIP r_float" title="Add Range">Add Static IP Route</a>
+      </div>
+      <div class="box_rounded_head_iproutes">Static IP Routes</div>
+    {?staticiproute}
+    <div class="">
+    {#staticiproute}
+      <div class="box margin-sides">
+        <div class="span3 width"> Host : <input type="text" class="input-medium" name="staticiproute[{$idx}][networkhost]" value="{networkhost}" placeholder="xxx.xxx.xxx.xxx"/></div>
+        <div class="span3 width">Subnet Mask : <input type="text" class="input-medium" name="staticiproute[{$idx}][subnetmask]" value="{subnetmask}" placeholder="xxx.xxx.xxx.xxx"/></div>
+        <div class="span3 width">Gateway : <input type="text" class="input-medium" name="staticiproute[{$idx}][gateway]" value="{gateway}" placeholder="xxx.xxx.xxx.xxx"/></div>
+        <div class="span2 width">Share VPN : <input type="checkbox" name="staticiproute[{$idx}][sharevpn]" {#sharevpn}checked{:else}{/sharevpn}></div>
+        <div id="bottom_buttons_network">
+    <center>
+      <div class="but_cat_network">
+      <a href="" class="button delete deleteStaticIp" title="Delete Static IP">Delete IP</a>
+      </div>
+    </center>
+  </div>  
+</div>    
+          
+      <hr/>
+
+
+
+
+    {/staticiproute}
+    </div>
+    </div>
+    {/staticiproute}
+    <!--VLAN Interfaces-->
+  <div class="box_rounded margin-sides">  
+    <div class="box_rounded_head_iproutes">VLAN Interfaces
+    <div class="width_common">
+    <a href="" class="button add addvlaninterface r_float" title="Add VLAN Interface">Add VLAN Interface</a>
+    </div>
+  </div>
+
+    {?vlaninterfaces}
+    {#vlaninterfaces:vlaninterfaces}
+    <div class="margin-sides"><!--whole vlan box-->       
+      <div class="row rule">
+        <div class="span8">ID : <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="++" /}][id]" value="{id}" placeholder="xxx.xxx.xxx.xxx"/>
+
+          <a href="" class="button delete delvlaninterface r_float" title="Delete VLAN Interface" id="{@counter operand="" /}" >Delete VLAN Interface</a>
+      </div>
+
+        </div>
+        
+      {#config}
+      <div class="mainmod margin-sides">
+        <div class="heading">Select configuration type:</div>
+        <div class="bg">
+        <label class="radio inline margin-sides"><input type="radio" id="manual" name="vlaninterfaces[{@counter operand="" /}][type]" value="static"  {@if cond="'{type}' == 'static'"}checked{/if}>Manual</label>
+        <label class="radio inline margin-sides"><input type="radio" id="dhcp" name="vlaninterfaces[{@counter operand="" /}][type]" value="dhcp" {@if cond="'{type}' == 'dhcp'"}checked{/if}>DHCP</label>         
+
+        </div>
+        <div class="margin-sides static-config row-fluid {@if cond="'{type}' == 'dhcp'"}hide{/if}">               
+          <div class="span3 width">IP: <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][config][ipaddress]" value="{ipaddress}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span3 width">Netmask: <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][config][subnetmask]" value="{subnetmask}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span3 width">Gateway: <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][config][gateway]" value="{gateway}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span3 width">Broadcast: <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][config][broadcast]" value="{broadcast}" placeholder="xxx.xxx.xxx.xxx"/></div>       
+        </div>
+      </div>
+      {/config}   
+      <!--vlan dhcp-->
+      <div class="row rule">
+        {#dhcp}<label class="span4 checkbox width margin-sides"><input type="checkbox" name="vlaninterfaces[{@counter operand="" /}][dhcp][enabled]" {#enabled}checked{:else}{/enabled}><b>Enable DHCP Server</b></label>
+        {#enabled}<div class="span2 right margin_top">
+        
+        <a href="" class="button add addVlanServeRange" title="Add Range" id="{@counter operand="" /}">Add Range</a></div>{/enabled}
+        
+      </div>
+      {?dhcp}       
+      {#ranges}
+      <div class="margin-sides box {^enabled}hide{/enabled}">
+          <div class="row-fluid margin-sides">
+            <b>From :</b> <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][dhcp][ranges][{$idx}][from]" value="{from}" placeholder="xxx.xxx.xxx.xxx"/> - 
+            <b>To :</b> <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][dhcp][ranges][{$idx}][to]" value="{to}" placeholder="xxx.xxx.xxx.xxx"/>
+          <a href="#" class="button delete deleteVlanServerRange" title="Delete Range" id="{@counter operand="" /}-{$idx}">Delete Range</a>
+          </div>
+          <hr />
+        </div>            
+          {/ranges}
+          {/dhcp}
+      {/dhcp}
+      <!--vlan Static ip-->
+      <div class="box_rounded margin-sides">
+      <div class="box_rounded_head_iproutes">Static IP Routes
+        <div class="width_common">
+        <a href="#" class="button add addVlanStaticIp r_float" title="Add Static IP"  id="{@counter operand="" /}">Add Static IP</a></div>
+      </div>
+      </div>
+      {?staticiproute}
+      <div class="margin-sides">      
+      {#staticiproute}
+        <div class="box margin-sides">
+          <div class="span3 width">Network Host : <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][staticiproute][{$idx}][networkhost]" value="{networkhost}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span3 width">Subnet Mask : <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][staticiproute][{$idx}][subnetmask]" value="{subnetmask}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span3 width">Gateway : <input type="text" class="input-medium" name="vlaninterfaces[{@counter operand="" /}][staticiproute][{$idx}][gateway]" value="{gateway}" placeholder="xxx.xxx.xxx.xxx"/></div>
+          <div class="span2 width">Share VPN : <input type="checkbox" name="vlaninterfaces[{@counter operand="" /}][staticiproute][{$idx}][sharevpn]" {#sharevpn}checked{:else}{/sharevpn}></div>
+          
+        <div id="bottom_buttons_network">
+    <center>
+      <div class="but_cat_network">
+      <a href="#" class="button delete deleteVlanStaticIp" title="Delete Static IP"  id="{@counter operand="" /}-{$idx}">Delete IP</a>
+      </div>
+    </center>
+  </div>  
+
+        </div>
+        <hr />        
+
+      {/staticiproute}
+      </div>
+      {/staticiproute}              
+    </div>
+
+    {/vlaninterfaces}
+    {/vlaninterfaces}
+
+  </div>
+    <div id="bottom_buttons">
+    <center>
+      <div class="but_cat">
+        <a href="#" class="button cancelEditInterface" title="Cancel Rule" >Cancel</a>
+        <a href="#" class="button save saveEditInterface" title="Save Interface">Save Interface</a>
+      </div>
+    </center>
+  </div>  
+
+</div>
+  <!--main box-->   
+</form> 
+</script>
 <!--json content end -->
 <!-- ==============================================
 JavaScript below!                              -->
@@ -573,13 +947,16 @@ JavaScript below!                              -->
 <script src="js/jquery.url.js"></script>
 <script src="js/jquery.vpnrac.js"></script>
 <script src="js/app.js"></script>
-<script src="js/dust-full-0.3.0.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/dust-helpers-1.1.0.js" type="text/javascript"></script>
-<script src="js/underscore.js" type="text/javascript"></script>
-<script src="js/backbone.js" type="text/javascript"></script>
-<script src="js/backbone.syphon.js" type="text/javascript"></script>
-<script src="js/bootstrap.js"></script>
 <script src="js/jquery.toggle.buttons.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/dust-full-1.2.0.js"></script> 
+<script src="js/dust-helpers.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/backbone.syphon.js"></script>
+<script src="js/backbone.memento.min.js"></script>
+<script src="js/sites.js"></script>
+<script src="js/common.js"></script>
 <script src="js/utm.js" type="text/javascript" ></script>
 <script src="js/common.js"></script>
 <!--=================Invisible Resources============= -->

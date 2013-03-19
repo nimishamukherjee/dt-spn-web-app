@@ -21,7 +21,8 @@ Backbone.Syphon = (function(Backbone, $, _){
   // in place of the view.
   Syphon.serialize = function(view, options){
     var data = {};
-	// Build the configuration
+
+    // Build the configuration
     var config = buildConfig(options);
 
     // Get all of the elements to process
@@ -58,7 +59,6 @@ Backbone.Syphon = (function(Backbone, $, _){
   // Alternately, pass a form element directly
   // in place of the view.
   Syphon.deserialize = function(view, data, options){
-  	
     // Build the configuration
     var config = buildConfig(options);
 
@@ -94,11 +94,10 @@ Backbone.Syphon = (function(Backbone, $, _){
   var getInputElements = function(view, config){
     var form = getForm(view);
     var elements = form.elements;
-   
+
     elements = _.reject(elements, function(el){
       var reject;
       var type = getElementType(el);
-      
       var extractor = config.keyExtractors.get(type);
       var identifier = extractor($(el));
      
@@ -115,8 +114,10 @@ Backbone.Syphon = (function(Backbone, $, _){
           reject = (foundInExclude || foundInIgnored);
         }
       }
-	  return reject;
+
+      return reject;
     });
+
     return elements;
   };
 
