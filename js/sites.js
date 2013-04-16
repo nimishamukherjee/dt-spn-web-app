@@ -7,8 +7,23 @@ $(document).ready(function() {
 	});
 	//Define Each Device for the List Model 
 	var DeviceListModel = Backbone.Model.extend({
-		url:"http://www.google.com"
+		url:"http://www.google.com",
 		//url :function(){return "/Orchestration/account/"+accountID+"/devices" + (this.get("id") == null ? "" : "/" + this.get("id"))}
+		
+	validation: {
+    	serial: {
+      		required: true,
+      		msg: 'Please enter a serial number'
+    	},
+    	location: {
+      		required: true
+    	} ,
+		name : {
+      		required: true,
+      		msg: 'please enter valid name'
+    	} ,
+    	 
+    	}
     });    
     //Collection of devices
     var DeviceList = Backbone.Collection.extend({
@@ -27,6 +42,9 @@ $(document).ready(function() {
         },        
        
         render: function (ref) {
+        	
+        	//ref.parentRefHtml.find(".eachrule").remove();
+        	
             var _self = this;
            	var data = this.model.toJSON();
             this.compiled = dust.compile(this.template,this.eachDeviceListTempl);            
@@ -66,7 +84,9 @@ $(document).ready(function() {
         },
         
         storeDeviceType: function(ref){
+        	
         	activateDeviceType = this.model.get("type");
+        	//alert('storeDeviceType-->'+activateDeviceType);
         }
                 
 	});
@@ -77,13 +97,15 @@ $(document).ready(function() {
         className: "actAdev",
         template: $("#activateAdeviceTemplate").html(),
         actTmpl: "activateadeviceTempl",     
+        parentRef: "",
         
          events:{
-        	"click a.activateDevice": "activateDevice",
+        	"click .activateDevice": "activateDevice",
         	"click a.cancel": "fnCancel",
         },    
         
-        render: function () {
+        render: function (ref) {
+        	this.parentRef = ref;
             var _self = this;
            	var data = this.model.toJSON();
            	this.compiled = dust.compile(this.template,this.actTmpl);            
@@ -91,29 +113,36 @@ $(document).ready(function() {
  			dust.render(this.actTmpl,data,function(err,out){
            		_self.$el.html(out);
        		});
+       		Backbone.Validation.bind(this);
        		 return this; 	
         },
         
         activateDevice:function(e){
+        	
         	e.preventDefault();
         	var that = this;
         	var data = Backbone.Syphon.serialize(this);
 			this.model.set(data);
+			console.log(data);
+			//alert('activateDevicea');
+			activateDeviceType='';
+			
+			
 			this.model.save(null, {
-				success:function(){
-					alert("done");
-					location.href = ""								            		
-				},
-				error:function(m,xhr,o){
-					location.href = ""
-					alert("error")
-				}
-			})
+							success:function(){
+								alert("done");
+								//location.href = ""								            		
+							},
+							error:function(m,xhr,o){
+								//location.href = ""
+								alert("error")
+							}
+						})
+			sitesRouter.navigate("deviceInfomain",true);
         },
         
         fnCancel: function(e){
         	e.preventDefault();
-			location.href = ""
         }       
 	});
 	
@@ -122,7 +151,12 @@ $(document).ready(function() {
     	eachDevView: null,
 
        render: function () {
+       //	alert('render');
             var that = this;
+            $("#activateddevicelist").find(".eachdevlistact").remove();
+            $("#pendactivatedevlist").find(".eachdevlistpendact").remove();
+            $("#activateadevice").find(".actAdev").remove();
+            
             _.each(this.collection.models, function (item) {
                 that.renderDeviceList(item);
             }, this);
@@ -131,33 +165,52 @@ $(document).ready(function() {
         renderDeviceList: function (item) {
         	if(item.toJSON().serial==null){
         		//check if activate a device
+        		//alert('activateDeviceType -- >'+activateDeviceType);
         		if(activateDeviceType==item.toJSON().type){
+        			
         			this.eachDevView = new ActivateADeviceView({
      	           		model: item
             		});
-          			$("#activateadevice").append(this.eachDevView.render().el);
+          			$("#activateadevice").append(this.eachDevView.render(this).el);
         		}else{
-        			this.eachDevView = new EachDevInListPendActView({
+        			//alert('pendactivatedevlist');
+        			this.eachDevPendView = new EachDevInListPendActView({
      	           		model: item
             		});
-          			$("#pendactivatedevlist").append(this.eachDevView.render().el);
+          			$("#pendactivatedevlist").append(this.eachDevPendView.render(this).el);
           		}
         	}else{
+        		//alert('eachdevlistact-->'+item.toJSON().serial);
+        		
         		this.eachDevView = new EachDevInListActView({
      	           model: item
             	});
           		$("#activateddevicelist").append(this.eachDevView.render().el);
           }
-        }        
+        },       
+        
+        addActivatedDevice: function(data)
+        {
+        	//alert('addActivatedDevice');
+        	
+        	
+        }
        
     });
     
+function fnDisplaydevinf(){
+	alert("hi");
+	window.location=currentUrl.substring(0);
+}
      //=======================E A C H  D E V I C E  I N F O R M A T I O N====================    
    	//Get the each device information
    	//Model
 	var getADeviceInfo = Backbone.Model.extend({
 		urlRoot : "data/deviceInfo.json"
 		//url :function(){return "/Orchestration/account/"+accountID+"/devices" + (this.get("id") == null ? "" : "/" + this.get("id"))}
+		
+		
+		
 	});
 	//View
 	var DeviceInfoView = Backbone.View.extend({
@@ -177,6 +230,8 @@ $(document).ready(function() {
         
         initialize: function(){
 			this.on('completeDeviceDelete', this.fnCompleteDeviceDelete, this);
+			
+        	
 		},  
        
         render: function (ref) {
@@ -188,6 +243,7 @@ $(document).ready(function() {
             dust.render(this.eachDeviceViewTempl,data,function(err,out){
             	_self.$el.html(out);
             });
+           //Backbone.Validation.bind(this);
             return this;
         },
         
@@ -199,27 +255,38 @@ $(document).ready(function() {
         
         fnSaveDeviceEdit: function(e){
         	e.preventDefault();
+        	//alert('fnSaveDeviceEdit');
         	var that = this;
         	var data = Backbone.Syphon.serialize(this);
 			this.model.set(data);
+			console.log(data);
 			//save to server
+			/*
 			this.model.save(null, {
-				success:function(){
-					alert("done");							            		
-				},
-				error:function(m,xhr,o){
-					alert("error")
-				}
-			})	
+							success:function(){
+								alert("done");							            		
+							},
+							error:function(m,xhr,o){
+								alert("error")
+							}
+						})	*/
+			
 			this.currentTemplate = this.template;
 			this.render();
         },
         
         fnDeleteDevDetails: function(e){
-        	e.preventDefault();
+        	var name = this.model.get('name');
+			var fnDeleteDevDetails = this.model;
+			var that = this;
         	//double popup for clarification
-        	fnShowAlert("Are you sure you want to delete this device","delete","device");
-        	
+        	fnShowAlert(" Are you sure you want to delete <br>" + "<b>" + name + "</b>" + "?" , "deleteinf","device");
+        	$("#no").show();
+					$("#yes").html("YES");
+					$("#yes").click(function(){
+							that.model.destroy();
+							//that.parentref.deleteFirewallRule(that.model,that.parentref);
+				})
         },
         
         fnCompleteDeviceDelete: function(e){
@@ -296,6 +363,7 @@ $(document).ready(function() {
         	"click a.cancel": "fnCancel",
         	"change select.dropdown": "fnDropDowns",
         	"keyup input": "fnCheckInput",
+			"keyup input[type='number']": "fnCheckNumber"
         },        
        
         render: function (ref) {
@@ -336,6 +404,7 @@ $(document).ready(function() {
         	this.render();
         },
         
+		
         saveFirewallRule:function(e){
         	e.preventDefault();
         	var data = Backbone.Syphon.serialize(this);
@@ -351,11 +420,18 @@ $(document).ready(function() {
 		},
 		
 		deleteFirewallRule:function(e){
-			e.preventDefault();
-			this.remove();
-        	this.model.destroy();
-		},
-		
+			var name = this.model.get('name');
+			var deleteFirewallRule = this.model;
+			var that = this;
+			fnShowAlert(" Are you sure you want to delete this rule <br>" + "<b>" + name + "</b>" + "?", "deletefirewall");
+					$("#no").show();
+					$("#yes").html("YES");
+					$("#yes").click(function(){
+							that.remove();
+							that.parentref.deleteFirewallRule(that.model,that.parentref);
+				})
+			},
+			
 		fnCancel:function(e){
 			e.preventDefault();
 			if(this.model.get('id')){
@@ -527,9 +603,34 @@ $(document).ready(function() {
 		
 		},
 		
-		fnCheckValidityAll:function()
-        {
-			 
+		fnCheckNumber: function(e){
+			var numbers = /^[0-9]+$/; 
+			if(($(e.target).val()).match(numbers)){
+	    		$(e.target).removeClass("error")	
+    		}else{    			
+    			$(e.target).addClass("error")
+    		}	
+			
+    			this.fnCheckValidityAll();
+    		
+		},
+		
+		fnCheckValidityAll:function(){
+			//check if all input are valid
+			var hasError = false;
+			this.$("input[type='text']").each(function(index,val){
+    			if($(this).hasClass("error")){
+    				hasError = true;    				
+    			}
+    		});
+    		if($("input[type='number']").hasClass("error")){
+    				hasError = true;    				
+    			}  		
+    		if(hasError){
+    			this.$(".saveRule").removeClass("btn-primary").addClass("disabled");	
+    		}else{
+    			this.$(".saveRule").removeClass("disabled").addClass("btn-primary");
+    		}  
 		},
 		
 		fnCheckInput: function(e)
@@ -545,6 +646,12 @@ $(document).ready(function() {
 	    			$(e.target).addClass("error");
 	    		}
     		}
+			if(($(e.target).val())!==""){
+	    		$(e.target).removeClass("error")	
+    		}else{    			
+    			$(e.target).addClass("error")
+    		}	
+			
     		this.fnCheckValidityAll();
 		}
 		
@@ -588,6 +695,7 @@ $(document).ready(function() {
         ruleListRender: null,
         htmlref: null,
         viewRef:null,
+        idGen:1,
         
         events:{
         	"click a.addRule": "addFirewallRule",
@@ -646,7 +754,9 @@ $(document).ready(function() {
         	var rules_arr=new Array()
         	if(str=="add"){
         		//This is for offline
-        		data.id="123"
+        		data.id=this.idGen+1;
+        		this.idGen=data.id;
+        		
   		       	_.each(rules, function (item) {
 	        			rules_arr.push(item)		
 	            }, this);
@@ -679,7 +789,21 @@ $(document).ready(function() {
         	e.preventDefault();
         	//add a new rule - show the rule edit template
     		this.ruleListRender.addNewRule(this.viewRef); 
-        }        
+        },   
+        
+        deleteFirewallRule: function(deleteFirewallRule){
+		  //this.model.remove(deleteFirewallRule);
+		   	 var removedRule = deleteFirewallRule.attributes;
+			 var rules = this.model.get("rules");
+			
+		   _.each(rules, function (rule) {
+		   	    if (_.isEqual(rule, removedRule)) {
+                    rules.splice(_.indexOf(rules, rule), 1);
+                }
+            });
+		  
+			this.render();
+	 },        
         
 	});
 	//define master view
@@ -762,7 +886,9 @@ $(document).ready(function() {
         	"click a.addvlaninterface": "fnAddVlanInterface",   
         	"click a.delvlaninterface": "fnDelVlanInterface",        	     	
         	"click input[type=radio]": "fnSetInterfaceType",
-        	"click input[type=checkbox]": "fnSetDhcpServer"
+        	"click input[type=checkbox]": "fnSetDhcpServer",
+			"keyup input[type='text']": "fnCheckInput",
+        	"keyup input[type='number']": "fnCheckNumber"
         },
        
         render: function () {
@@ -776,6 +902,45 @@ $(document).ready(function() {
             });
             return this;
         },
+		
+		fnCheckNumber: function(e){
+    			if($(e.target).val()<=4098 && $(e.target).val()!=""){
+	    		$(e.target).removeClass("error")	
+    		}else{    			
+    			$(e.target).addClass("error")
+    		}	
+			
+    			this.fnCheckValidityAll();
+    		
+		},
+		
+		fnCheckValidityAll:function(){
+			//check if all input are valid
+			var hasError = false;
+			this.$("input[type='text']").each(function(index,val){
+    			if($(this).hasClass("error")){
+    				hasError = true;    				
+    			}
+    		});
+    		if($("input[type='number']").hasClass("error")){
+    				hasError = true;    				
+    			}  		
+    		if(hasError){
+    			this.$(".saveEditInterface").removeClass("btn-primary").addClass("disabled");	
+    		}else{
+    			this.$(".saveEditInterface").removeClass("disabled").addClass("btn-primary");
+    		}  
+		},
+		fnCheckInput: function(e){
+    			var ip = new RegExp("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
+    		if(($(e.target).val()).match(ip)){
+	    		$(e.target).removeClass("error")	
+    		}else{    			
+    			$(e.target).addClass("error")
+    		}	
+			
+    			this.fnCheckValidityAll();
+		},
         //Edit Main Interface
         fnEditInterface: function(e){
         	e.preventDefault();
@@ -1017,6 +1182,8 @@ $(document).ready(function() {
             "": "fnGetListOfDev",
             "activate": "fnActivate",
             "deviceInfo": "fnDeviceInfo",
+			"deviceInfomain" :"fnDeviceInfomain",
+			"tabs1-pane3" :"fnmainindex",
             "firewall":"fnGetFirewall",
             "network":"fnGetNetwork"
         },
@@ -1034,10 +1201,22 @@ $(document).ready(function() {
 			});
 			   
         },
-        //Activate a device
-        fnActivate: function(){
+       
+        fnDeviceInfomain: function(){
+        	
+        	fnUpdateSectionDisplay("#listofdevices");
+        	activateDeviceType='';
+        	listOfDevicesRender.render();
+        	$(".tabsleft").addClass("hidden");
+        },
+		
+		
+		
+		//Activate a device
+		fnActivate: function(){
         	fnUpdateSectionDisplay("#activateadevice");
-        	this.fnGetListOfDev();
+        	listOfDevicesRender.render();
+        	//this.fnGetListOfDev();
         },
         //Display a devices's information
         fnDeviceInfo: function(){
@@ -1045,12 +1224,14 @@ $(document).ready(function() {
 			fnUpdateSectionDisplay("#eachDeviceInformation");
         	this.router_devinfo=new getADeviceInfo();
 			this.router_devinfo.fetch({
-				success:function(model, response){										
+				success:function(model, response){	
+														
 					that.eachDevInfoView = new DeviceInfoView({
      		           model: model
             		});
             		$("#eachDeviceInformation").html("")
           			$("#eachDeviceInformation").append(that.eachDevInfoView.render().el);
+					$(".nav-tabs-inner").removeClass('hidden');	
 				},
 				error:function(data){
 					alert("Error loading json")

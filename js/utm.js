@@ -292,7 +292,6 @@ var blackListView = Backbone.View.extend({
 												 this.collection.bind('add', this.appendItem);
 												 this.collection.bind('remove', this.deleteItem);
 												 
-												
 											},
 											events : {
 												"click button.block": "addItem",
@@ -355,8 +354,8 @@ var accountRouter = Backbone.Router.extend({
         routes: {
             "": "fnInitAntivirus",
  	    	"utm":"fnGetUTM",
- 	    	"view":"fnGetViewConn",
- 	    	"Serverkeys":"fnGetServerKeys"
+ 	    	"viewconn":"fnGetViewConn",
+ 	    	"viewserver":"fnGetServerKeys"
         },
 
         fnInitList: function (type) {
@@ -373,25 +372,24 @@ var accountRouter = Backbone.Router.extend({
 			});
 		},
 
+		//UTM
 
 		fnGetUTM: function(){
 			$('#utm').tab('show');
 	        $('.nav-tabs a[href=#utm]').tab('show').css('cursor', 'pointer');
-			
-        	
+	        
          },
 
          fnGetViewConn: function(){
-         	$('#view').tab('show');
-         	$('.nav-tabs a[href=#view]').tab('show').css('cursor', 'pointer');
-        	
+        		$('#viewconn').tab('show');
+	        $('.nav-tabs a[href=#viewconn]').tab('show').css('cursor', 'pointer');
          },
 
   		fnGetServerKeys: function(){
-  			$('#Serverkeys').tab('show');
-        	$('.nav-tabs a[href=#Serverkeys]').tab('show').css('cursor', 'pointer');
-        	
+        	$('#viewserver').tab('show');
+	        $('.nav-tabs a[href=#viewserver]').tab('show').css('cursor', 'pointer');
          },
+         
 
 		fnInitBlackList : function(type){
 			this.blackListCollection=new BlackListCollection();
@@ -466,7 +464,8 @@ var accountRouter = Backbone.Router.extend({
 		
 		
     });
-	compileTemplates();
+    
+   	compileTemplates();
 		var app = new accountRouter();
 		Backbone.history.stop();
 		Backbone.history.start();

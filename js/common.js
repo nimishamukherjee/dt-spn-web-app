@@ -17,6 +17,7 @@ function fnUpdateSectionDisplay(ref){
 function fnUpdateUTMDisplay(ref){
 	$(".section").addClass("hidden");
 	$(ref).removeClass("hidden");
+	if(ref=="#viewUtm" || ref=="#viewconn" || ref=="#views"){
 		$('.sidebar-nav').removeClass("hide")
 		$( ".sidebar-nav li" ).each(function( index ) {
   			$(this).find('a').removeClass("active_tab");
@@ -25,7 +26,9 @@ function fnUpdateUTMDisplay(ref){
   				$(this).find('a').addClass("active_tab");  				
   			}
 		});
+	}
 }
+
 //Modal variables
 var modalType, modalSection, secondAlert = false;
 function fnShowAlert(msg,type,section){
