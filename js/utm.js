@@ -221,6 +221,10 @@ var CategoriesListView = Backbone.View.extend({
 		
 		SaveCat: function(e){
 			//alert(JSON.stringify(this.model.toJSON()));
+			//alert('save -> ');
+			e.preventDefault();
+			//this.model.get(data.get('id')).set(data);
+			
 		},
 		
 		Buttonactions: function(){
@@ -230,6 +234,7 @@ var CategoriesListView = Backbone.View.extend({
 		
 		
         render: function () {
+        	$("#CatList").html("");
 			for(var i = 0; i < this.model.toJSON().length; i++)
 			{
 				$("#CatList").append(new CategoryViewItem({model:new CategoryModel(this.model.toJSON()[i])}).el);
@@ -244,7 +249,7 @@ var CategoriesListView = Backbone.View.extend({
 //Black List Item
 var BlackListViewItem = Backbone.View.extend({
 			initialize:function(){
-							this.render();
+							//this.render();
 							},
 			tagName: "li",
         	className: "span3_blklist",
@@ -262,8 +267,10 @@ var BlackListViewItem = Backbone.View.extend({
 					 $("#dialog").dialog({
 								buttons : {
 									"Confirm" : function() {
-									  //that.remove();
-									  blacklistview.deleteItem(deleteItem);
+									  //that.model.destroy();
+									  that.remove();
+									  that.parentRef.deleteItem(deleteItem);
+									 //
 									   $(this).dialog("close");
 									},
 									"Cancel" : function() {
@@ -273,7 +280,8 @@ var BlackListViewItem = Backbone.View.extend({
 								});
 					  ;
 			},
-			render: function(){
+			render: function(ref){
+				this.parentRef = ref;
 				var thisObj = this;
 					dust.render(this.currentTempl, this.model.toJSON(), function(err, output){
 								if(err){
@@ -286,33 +294,59 @@ var BlackListViewItem = Backbone.View.extend({
 		});
 	//BlackList Master View
 var blackListView = Backbone.View.extend({
+	
+	                  itemExist:'false',
+	                  liLength:100,
 											 initialize:function(){
 												 
 												 this.collection = new BlackListCollection();
-												 this.collection.bind('add', this.appendItem);
-												 this.collection.bind('remove', this.deleteItem);
 												 
 											},
 											events : {
 												"click button.block": "addItem",
 											},
 											addItem: function(){
+ 												this.itemExist='false';
 												var validUrl = /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+												//var validUrl = "^(http(?:s)?\:\/\/[a-zA-Z0-9\-]+(?:\.[a-zA-Z0-9\-]+)*\.[a-zA-Z]{2,6}(?:\/?|(?:\/[\w\-]+)*)(?:\/?|\/\w+\.[a-zA-Z]{2,4}(?:\?[\w]+\=[\w\-]+)?)?(?:\&[\w]+\=[\w\-]+)*)$";
 												var blockitem = $("#itemToAdd").val();
 												var item = new BlackListModel();
-												liLength = $("#BlkLst li").length + 1;
+												this.liLength = this.liLength + 1;//$("#BlkLst li").length + 1;
+
 												if(blockitem.match(validUrl)){
 													item.set({
-														id:"u"+liLength,
+														id:"u"+this.liLength,
         												url: blockitem 
      												});
-													//alert(JSON.stringify(item));
+     												
+     									//		alert('valid url -');
+     											_.each(this.collection.models, function (mod) {
+												     if (_.isEqual(mod.get('url'),blockitem)) {
+												        this.itemExist='true';  
+												    }
+											     }, this);
+		
+												     if(_.isEqual(this.itemExist,'true')){
+												     	$("#dialog").dialog("open").html("URL already exist");
+													$("#ui-dialog-title-dialog").html("Alert");
+												    $("#dialog").dialog({
+															buttons : {
+																"Ok" : function() {
+																  $(this).dialog("close");
+																}
+														}
+													});
+												     }
+												     else{
+												
 													this.collection.add(item);
-													$("#itemToAdd").val("");
-													this.model.push(item);
+													
 													this.render();
-													//alert(JSON.stringify(this.model));
+													$("#itemToAdd").val("");
+													}
+
 												}else{
+													
 													$("#dialog").dialog("open").html("Please enter a valid URL");
 													$("#ui-dialog-title-dialog").html("Alert");
 												    $("#dialog").dialog({
@@ -322,29 +356,40 @@ var blackListView = Backbone.View.extend({
 																}
 														}
 													});
+													return;
 												}
 												
 											},
 											
 											deleteItem: function(deleteitem){
-												this.model.remove(deleteitem);
+																									   	 
+												var removedItem = deleteitem.attributes;
+														
+													   _.each(this.collection.models, function (model) {
+														   	    if (_.isEqual(model.id, removedItem.id)) {
+														   	    	
+												                    this.collection.models.splice(_.indexOf(this.collection.models, model), 1);
+											                }
+											            },this);
+												
 												this.render();
 											},   
 											
 											render: function(){
+												 
 												 var self = this;
 												 $("#BlkLst").html("");
-     											 //$(this.el).append("<button id='add'>Add list item</button>");
-												for(var i = 0; i < this.model.toJSON().length; i++){
-												$("#BlkLst").append(new BlackListViewItem({model: new BlackListModel(this.model.toJSON()[i])}).el);
-												}
-												
+												   _.each(this.collection.models, function (item) {
+				 										$("#BlkLst").append(new BlackListViewItem({model: new BlackListModel(item)}).render(this).el);
+            										}, this);
+            										
 											},
 											appendItem: function(item){
+
      										 var itemView = new BlackListViewItem({
 												   model: item
      											 });
-     											$("#BlkLst").append(itemView.el);//for rendering
+     											$("#BlkLst").append(itemView.render(this).el);//for rendering
 											}
 											
 										});
@@ -363,6 +408,7 @@ var accountRouter = Backbone.Router.extend({
 			$("#CatList").html("");
 			this.cCollection.fetch({
 				success:function(model, response){	
+					
 				categoriesListView = new CategoriesListView({el: $("#CatContainer"), model:model});
 				categoriesListView.render();
 				},
@@ -393,10 +439,13 @@ var accountRouter = Backbone.Router.extend({
 
 		fnInitBlackList : function(type){
 			this.blackListCollection=new BlackListCollection();
+			var that = this;
 			$("#BlkLst").html("");
 			this.blackListCollection.fetch({
 				success:function(model, response){	
-				blacklistview = new blackListView({el: $("#BlkLstContainer"), model:model});
+//				blacklistview = new blackListView({el: $("#BlkLstContainer"), model:model});
+				blacklistview = new blackListView({el: $("#BlkLstContainer")});
+				blacklistview.collection = that.blackListCollection;
 				blacklistview.render();
 				},
 				error:function(data){
@@ -407,6 +456,7 @@ var accountRouter = Backbone.Router.extend({
 		
 		fnInitAntivirus : function(type){
 			this.virusCollection=new AntivirusCollection();
+			//$("#virusContianer").html("");
 			this.virusCollection.fetch({
 				success:function(model, response){	
 				antivirusview = new AntivirusView({el: $("#virusContianer"), model:model});
@@ -425,6 +475,7 @@ var accountRouter = Backbone.Router.extend({
 			this.fnInitContFltr();
 		},
 		fnInitContFltr : function(type){
+			//alert('fnInitContFltr');
 			this.contfltrCollection=new ContFltrCollection();
 			this.contfltrCollection.fetch({
 				success:function(model, response){	
@@ -443,8 +494,8 @@ var accountRouter = Backbone.Router.extend({
 						 onChange: function ($el, status, e) {
 							 	contfltrsview.saveToggle(status);
 								if(status == true){
-									app.fnInitBlackList();
-									app.fnInitList();
+									//app.fnInitBlackList();
+									//app.fnInitList();
 									$("#CatContainer").show();
 									$("#BlkLstContainer").show();
 									}

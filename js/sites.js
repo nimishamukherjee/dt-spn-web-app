@@ -143,6 +143,8 @@ $(document).ready(function() {
         
         fnCancel: function(e){
         	e.preventDefault();
+			sitesRouter.navigate("deviceInfomain",true);
+			
         }       
 	});
 	
@@ -282,11 +284,17 @@ function fnDisplaydevinf(){
         	//double popup for clarification
         	fnShowAlert(" Are you sure you want to delete <br>" + "<b>" + name + "</b>" + "?" , "deleteinf","device");
         	$("#no").show();
+					$("#yes").show();
 					$("#yes").html("YES");
 					$("#yes").click(function(){
 							that.model.destroy();
+							
 							//that.parentref.deleteFirewallRule(that.model,that.parentref);
 				})
+				
+				
+			//$("#no").hide();
+			//$("#yes").hide();	
         },
         
         fnCompleteDeviceDelete: function(e){
@@ -423,13 +431,17 @@ function fnDisplaydevinf(){
 			var name = this.model.get('name');
 			var deleteFirewallRule = this.model;
 			var that = this;
-			fnShowAlert(" Are you sure you want to delete this rule <br>" + "<b>" + name + "</b>" + "?", "deletefirewall");
+			fnShowAlert(" Are you sure you want to delete this rule <br>" + "<b>" + name + "</b>" + "?", "deleteinf");
 					$("#no").show();
-					$("#yes").html("YES");
+					$("#yes").show();
 					$("#yes").click(function(){
 							that.remove();
 							that.parentref.deleteFirewallRule(that.model,that.parentref);
 				})
+				/*
+				$(".deletefirewall #no").hide();
+								$(".deletefirewall  #yes").hide();*/
+				
 			},
 			
 		fnCancel:function(e){
